@@ -21,6 +21,7 @@
 		5B582F07245DCAFD00C8B875 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F06245DCAFD00C8B875 /* LoginResponse.swift */; };
 		5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F08245DCBCD00C8B875 /* Alerts.swift */; };
 		5B582F0B245DD3D600C8B875 /* haptic+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0A245DD3D600C8B875 /* haptic+Feedback.swift */; };
+		5B582F0D245DD95000C8B875 /* keyboard+Hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5B582F06245DCAFD00C8B875 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		5B582F08245DCBCD00C8B875 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		5B582F0A245DD3D600C8B875 /* haptic+Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "haptic+Feedback.swift"; sourceTree = "<group>"; };
+		5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "keyboard+Hide.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				5B582F04245DC7F900C8B875 /* String+Extension.swift */,
 				5B582F08245DCBCD00C8B875 /* Alerts.swift */,
 				5B582F0A245DD3D600C8B875 /* haptic+Feedback.swift */,
+				5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B582F0D245DD95000C8B875 /* keyboard+Hide.swift in Sources */,
 				5B582F05245DC7F900C8B875 /* String+Extension.swift in Sources */,
 				5B582F02245D6D2D00C8B875 /* error-Response.swift in Sources */,
 				5B582F07245DCAFD00C8B875 /* LoginResponse.swift in Sources */,
