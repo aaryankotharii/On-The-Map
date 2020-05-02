@@ -41,6 +41,7 @@ class LoginViewController: UIViewController {
     func handleLogin(success:Bool,error:Error?){
         if success{
             UIDevice.validVibrate()
+            goToTabBar()
             print("Logged in")
         }else{
             if errorCheck() != nil { AuthAlert(errorCheck()!) ; return }
@@ -58,6 +59,13 @@ class LoginViewController: UIViewController {
             return "Enter a valid email ID"
         }
         return nil
+    }
+    
+    
+    func goToTabBar(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "tabbar") as! UITabBarController
+        self.present(vc, animated: true)
     }
 }
 
