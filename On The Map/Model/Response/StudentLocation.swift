@@ -21,3 +21,8 @@ struct StudentLocation: Codable {
     let uniqueKey : String
     let updatedAt : String
 }
+
+
+struct StudentData : Codable {
+    let results : [StudentLocation]
+}
