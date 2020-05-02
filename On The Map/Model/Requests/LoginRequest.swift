@@ -8,17 +8,13 @@
 
 import Foundation
 
-struct Auth : Codable{
-     var account : Account
-     var session : Session
+struct Udacity:Codable {
+    let udacity:User
 }
 
-struct Account: Codable {
-     var registered : Bool
-     var key : String
-}
-
-struct Session: Codable {
-     var id : String
-     var expiration : String
+// struct to store the login credentials for request
+struct User:Codable {
+    
+    let username:String
+    let password:String
 }
