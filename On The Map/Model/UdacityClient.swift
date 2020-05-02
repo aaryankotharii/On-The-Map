@@ -11,7 +11,7 @@ import Foundation
 class UdacityClient {
     
     
-    enum Endpoint {
+    enum Endpoints {
         
         case login
         
@@ -26,11 +26,26 @@ class UdacityClient {
         }
     }
     
+    enum httpBody {
+        case login(String,String)
+        
+        var stringValue : String{
+            switch self {
+            case .login(let username, let password):
+                return "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
+            }
+        }
+        var data : Data {
+            return self.stringValue.data(using: .utf8) ?? Data()
+        }
+    }
+    
     
     class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.httpBody = try! JSONEncoder().encode(body)
+       // request.httpBody = try! JSONEncoder().encode(body)
+        request.httpBody = "{\"udacity\": {\"username\": \"z@k.com\", \"password\": \"xoqrod-poxni8-xoQpug\"}}".data(using: .utf8)
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -69,16 +84,18 @@ class UdacityClient {
     
     
     
-//class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
-//    let body = LoginRequest(username: username, password: password, requestToken: Auth.requestToken)
-//    taskForPOSTRequest(url: Endpoints.login.url, responseType: RequestTokenResponse.self, body: body) { response, error in
-//        if let response = response {
-//            Auth.requestToken = response.requestToken
-//            completion(true, nil)
-//        } else {
-//            completion(false, error)
-//        }
-//    }
-//}
+class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+    let body = "{\"udacity\": {\"username\": \"z@k.com\", \"password\": \"xoqrod-poxni8-xoQpug\"}}".data(using: .utf8)
+    taskForPOSTRequest(url: Endpoints.login.url, responseType: ErrorResponse.self, body: body) { response, error in
+        if let response = response {
+            print(response,"Response")
+            completion(true, nil)
+        } else {
+            completion(false, error)
+        }
+    }
+}
+    
+    
     
 }
