@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginClicked(_ sender: UIButton) {
         
-        //if errorCheck() != nil { print(errorCheck()!) ; return}
+        if errorCheck() != nil { AuthAlert(errorCheck()!) ; return }
         
         UdacityClient.login(username: "z@k.com", password: "xoqrod-poxni8-xoQpug", completion: handleLogin(success:error:))
             }
@@ -30,13 +30,7 @@ class LoginViewController: UIViewController {
         if success{
             print("Logged in")
         }else{
-            switch error?.localizedDescription {
-            case "The data couldn’t be read because it isn’t in the correct format.":
-                print("Wrong password")
-            default:
-                print(error?.localizedDescription)
-            }
-            print(error?.localizedDescription ?? "Error")
+            AuthAlert(error?.localizedDescription ??  "Error")
         }
     }
     
