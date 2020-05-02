@@ -24,6 +24,8 @@
 		5B582F0D245DD95000C8B875 /* keyboard+Hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */; };
 		5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0E245DDF5C00C8B875 /* MapViewController.swift */; };
 		5B582F11245DDF6300C8B875 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F10245DDF6300C8B875 /* ListViewController.swift */; };
+		5B5A79EE245E04C0003A99EA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79ED245E04C0003A99EA /* UserData.swift */; };
+		5B5A79F0245E0D22003A99EA /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79EF245E0D22003A99EA /* StudentLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "keyboard+Hide.swift"; sourceTree = "<group>"; };
 		5B582F0E245DDF5C00C8B875 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5B582F10245DDF6300C8B875 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		5B5A79ED245E04C0003A99EA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		5B5A79EF245E0D22003A99EA /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 			children = (
 				5B582F01245D6D2D00C8B875 /* error-Response.swift */,
 				5B582F06245DCAFD00C8B875 /* LoginResponse.swift */,
+				5B5A79ED245E04C0003A99EA /* UserData.swift */,
+				5B5A79EF245E0D22003A99EA /* StudentLocation.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -219,9 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5A79F0245E0D22003A99EA /* StudentLocation.swift in Sources */,
 				5B582F0D245DD95000C8B875 /* keyboard+Hide.swift in Sources */,
 				5B582F05245DC7F900C8B875 /* String+Extension.swift in Sources */,
 				5B582F02245D6D2D00C8B875 /* error-Response.swift in Sources */,
+				5B5A79EE245E04C0003A99EA /* UserData.swift in Sources */,
 				5B582F07245DCAFD00C8B875 /* LoginResponse.swift in Sources */,
 				5B582EFC245D63F300C8B875 /* UdacityClient.swift in Sources */,
 				5B582F0B245DD3D600C8B875 /* haptic+Feedback.swift in Sources */,

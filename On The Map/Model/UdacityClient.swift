@@ -14,11 +14,14 @@ class UdacityClient {
     enum Endpoints {
         
         case login
+        case studentLocation
         
         var stringValue : String{
             switch self {
             case .login:
                 return "https://onthemap-api.udacity.com/v1/session"
+            case .studentLocation:
+                return "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt"
             }
         }
         var url : URL {
@@ -26,19 +29,41 @@ class UdacityClient {
         }
     }
     
-    enum httpBody {
-        case login(String,String)
-        
-        var stringValue : String{
-            switch self {
-            case .login(let username, let password):
-                return "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}"
+
+
+    class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async {
+                    completion(responseObject, nil)
+                }
+            } catch {
+                do {
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: data) as Error
+                    DispatchQueue.main.async {
+                        completion(nil, errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
+                }
             }
         }
-        var data : Data {
-            return self.stringValue.data(using: .utf8) ?? Data()
-        }
+        task.resume()
+        
+        return task
     }
+    
+    
     
     
      class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
@@ -99,4 +124,5 @@ class UdacityClient {
             }
         }
     }
+    
 }
