@@ -56,6 +56,9 @@
 		5B582EE1245D5D9600C8B875 /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				5B582EF6245D636000C8B875 /* Model */,
+				5B582EF7245D636700C8B875 /* View */,
+				5B582EF8245D636B00C8B875 /* Controller */,
 				5B582EE2245D5D9600C8B875 /* AppDelegate.swift */,
 				5B582EE4245D5D9600C8B875 /* SceneDelegate.swift */,
 				5B582EE6245D5D9600C8B875 /* ViewController.swift */,
@@ -65,6 +68,27 @@
 				5B582EF0245D5D9800C8B875 /* Info.plist */,
 			);
 			path = "On The Map";
+			sourceTree = "<group>";
+		};
+		5B582EF6245D636000C8B875 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B582EF7245D636700C8B875 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B582EF8245D636B00C8B875 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
