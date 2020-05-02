@@ -22,6 +22,8 @@
 		5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F08245DCBCD00C8B875 /* Alerts.swift */; };
 		5B582F0B245DD3D600C8B875 /* haptic+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0A245DD3D600C8B875 /* haptic+Feedback.swift */; };
 		5B582F0D245DD95000C8B875 /* keyboard+Hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */; };
+		5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0E245DDF5C00C8B875 /* MapViewController.swift */; };
+		5B582F11245DDF6300C8B875 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F10245DDF6300C8B875 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		5B582F08245DCBCD00C8B875 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		5B582F0A245DD3D600C8B875 /* haptic+Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "haptic+Feedback.swift"; sourceTree = "<group>"; };
 		5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "keyboard+Hide.swift"; sourceTree = "<group>"; };
+		5B582F0E245DDF5C00C8B875 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5B582F10245DDF6300C8B875 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				5B582EF9245D639200C8B875 /* LoginViewController.swift */,
+				5B582F0E245DDF5C00C8B875 /* MapViewController.swift */,
+				5B582F10245DDF6300C8B875 /* ListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,6 +225,8 @@
 				5B582F07245DCAFD00C8B875 /* LoginResponse.swift in Sources */,
 				5B582EFC245D63F300C8B875 /* UdacityClient.swift in Sources */,
 				5B582F0B245DD3D600C8B875 /* haptic+Feedback.swift in Sources */,
+				5B582F11245DDF6300C8B875 /* ListViewController.swift in Sources */,
+				5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */,
 				5B582EFA245D639200C8B875 /* LoginViewController.swift in Sources */,
 				5B582EE7245D5D9600C8B875 /* ViewController.swift in Sources */,
 				5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */,

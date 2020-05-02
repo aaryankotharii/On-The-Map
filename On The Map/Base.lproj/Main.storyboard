@@ -94,6 +94,36 @@
             </objects>
             <point key="canvasLocation" x="139" y="130"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="tmv-fm-5Tf">
+            <objects>
+                <viewController id="nUd-Gv-cZa" customClass="MapViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6wB-Y7-Y1I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zj2-Kc-awu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wfo-ee-AG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832" y="-143"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="rY5-yE-V92">
+            <objects>
+                <viewController id="EjK-Zf-Fnd" customClass="ListViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bv2-CU-lRr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="tyN-3a-l5r"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uz9-Ae-KDr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832" y="556"/>
+        </scene>
     </scenes>
     <resources>
         <image name="logo-u" width="62" height="62"/>
