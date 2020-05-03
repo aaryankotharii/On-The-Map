@@ -26,6 +26,7 @@
 		5B582F11245DDF6300C8B875 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F10245DDF6300C8B875 /* ListViewController.swift */; };
 		5B5A79EE245E04C0003A99EA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79ED245E04C0003A99EA /* UserData.swift */; };
 		5B5A79F0245E0D22003A99EA /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79EF245E0D22003A99EA /* StudentLocation.swift */; };
+		5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		5B582F10245DDF6300C8B875 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		5B5A79ED245E04C0003A99EA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		5B5A79EF245E0D22003A99EA /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		5B582EF7245D636700C8B875 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */,
 				5B582EFA245D639200C8B875 /* LoginViewController.swift in Sources */,
 				5B582EE7245D5D9600C8B875 /* ViewController.swift in Sources */,
+				5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */,
 				5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */,
 				5B582EFE245D646B00C8B875 /* LoginRequest.swift in Sources */,
 				5B582EE3245D5D9600C8B875 /* AppDelegate.swift in Sources */,

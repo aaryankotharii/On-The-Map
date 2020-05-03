@@ -9,22 +9,26 @@
 import UIKit
 
 class ListViewController: UIViewController {
+    
+    var studentData = [StudentLocation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UdacityClient.getStudentLocation(completion: handleStudentData(studentData:error:))
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func handleStudentData(studentData:[StudentLocation], error:Error?){
+        self.studentData = studentData
     }
-    */
+}
 
+extension ListViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return studentData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //
+    }
 }

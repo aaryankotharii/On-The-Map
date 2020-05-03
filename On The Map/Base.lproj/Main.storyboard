@@ -117,14 +117,65 @@
                     <view key="view" contentMode="scaleToFill" id="bv2-CU-lRr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdP-7E-eVb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="ODF-n2-Rwm"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I7u-Lr-SQV">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="NQ1-bt-PC6">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NQ1-bt-PC6" id="xEq-0w-tVC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="3Fp-FT-U7O">
+                                                    <rect key="frame" x="20" y="5" width="53" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="3Fp-FT-U7O" secondAttribute="height" multiplier="53:65" id="hLn-2l-TTz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u42-gm-VLW">
+                                                    <rect key="frame" x="94" y="21" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Fp-FT-U7O" firstAttribute="leading" secondItem="xEq-0w-tVC" secondAttribute="leading" constant="20" id="5Gn-ZV-0sg"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Fp-FT-U7O" secondAttribute="bottom" constant="5" id="NxS-2G-407"/>
+                                                <constraint firstItem="3Fp-FT-U7O" firstAttribute="top" secondItem="xEq-0w-tVC" secondAttribute="top" constant="5" id="isU-qs-Rzy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IdP-7E-eVb" firstAttribute="trailing" secondItem="tyN-3a-l5r" secondAttribute="trailing" id="HLE-fY-OIq"/>
+                            <constraint firstItem="I7u-Lr-SQV" firstAttribute="leading" secondItem="tyN-3a-l5r" secondAttribute="leading" id="Zcf-Nh-CiF"/>
+                            <constraint firstItem="tyN-3a-l5r" firstAttribute="trailing" secondItem="I7u-Lr-SQV" secondAttribute="trailing" id="a7a-p7-4vA"/>
+                            <constraint firstItem="I7u-Lr-SQV" firstAttribute="top" secondItem="IdP-7E-eVb" secondAttribute="bottom" id="bk4-K7-LZ4"/>
+                            <constraint firstItem="tyN-3a-l5r" firstAttribute="bottom" secondItem="I7u-Lr-SQV" secondAttribute="bottom" id="djv-eP-1rx"/>
+                            <constraint firstItem="IdP-7E-eVb" firstAttribute="top" secondItem="tyN-3a-l5r" secondAttribute="top" id="ozZ-aO-idr"/>
+                            <constraint firstItem="IdP-7E-eVb" firstAttribute="leading" secondItem="tyN-3a-l5r" secondAttribute="leading" id="wki-ab-EPa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tyN-3a-l5r"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="icon_listview-selected" selectedImage="icon_listview-deselected" id="NgI-R4-N8f"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uz9-Ae-KDr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="556"/>
+            <point key="canvasLocation" x="2328.985507246377" y="555.80357142857144"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yrC-Cp-hvB">
@@ -133,6 +184,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="W8F-e4-ow2"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Trz-jG-y1m">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -151,6 +203,7 @@
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
 </document>
