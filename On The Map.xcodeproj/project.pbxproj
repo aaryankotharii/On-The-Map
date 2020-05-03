@@ -27,6 +27,7 @@
 		5B5A79EE245E04C0003A99EA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79ED245E04C0003A99EA /* UserData.swift */; };
 		5B5A79F0245E0D22003A99EA /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79EF245E0D22003A99EA /* StudentLocation.swift */; };
 		5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */; };
+		5B5A79F4245E77C2003A99EA /* StudentDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79F3245E77C2003A99EA /* StudentDataBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		5B5A79ED245E04C0003A99EA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		5B5A79EF245E0D22003A99EA /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataTableViewCell.swift; sourceTree = "<group>"; };
+		5B5A79F3245E77C2003A99EA /* StudentDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				5B582F00245D6D0300C8B875 /* Response */,
 				5B582EFB245D63F300C8B875 /* UdacityClient.swift */,
 				5B582EFF245D646F00C8B875 /* Requests */,
+				5B5A79F3245E77C2003A99EA /* StudentDataBase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */,
 				5B582EFE245D646B00C8B875 /* LoginRequest.swift in Sources */,
 				5B582EE3245D5D9600C8B875 /* AppDelegate.swift in Sources */,
+				5B5A79F4245E77C2003A99EA /* StudentDataBase.swift in Sources */,
 				5B582EE5245D5D9600C8B875 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -101,10 +101,33 @@
                     <view key="view" contentMode="scaleToFill" id="6wB-Y7-Y1I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJo-iN-Hq6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="On The Map" id="D9h-OW-a27"/>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-g7-TQH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zj2-Kc-awu" firstAttribute="bottom" secondItem="hMv-g7-TQH" secondAttribute="bottom" id="2dV-JI-51T"/>
+                            <constraint firstItem="eJo-iN-Hq6" firstAttribute="trailing" secondItem="zj2-Kc-awu" secondAttribute="trailing" id="B2w-HW-471"/>
+                            <constraint firstItem="eJo-iN-Hq6" firstAttribute="top" secondItem="zj2-Kc-awu" secondAttribute="top" id="ODr-86-XhC"/>
+                            <constraint firstItem="hMv-g7-TQH" firstAttribute="leading" secondItem="zj2-Kc-awu" secondAttribute="leading" id="T4N-BM-1Jf"/>
+                            <constraint firstItem="hMv-g7-TQH" firstAttribute="top" secondItem="eJo-iN-Hq6" secondAttribute="bottom" id="TCn-lX-4lG"/>
+                            <constraint firstItem="eJo-iN-Hq6" firstAttribute="leading" secondItem="zj2-Kc-awu" secondAttribute="leading" id="kJA-de-IYq"/>
+                            <constraint firstItem="zj2-Kc-awu" firstAttribute="trailing" secondItem="hMv-g7-TQH" secondAttribute="trailing" id="sAP-5Z-CxW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zj2-Kc-awu"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="icon_mapview-selected" selectedImage="icon_mapview-deselected" id="qer-KO-ZfK"/>
+                    <connections>
+                        <outlet property="mapView" destination="hMv-g7-TQH" id="gdg-5c-NXC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfo-ee-AG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

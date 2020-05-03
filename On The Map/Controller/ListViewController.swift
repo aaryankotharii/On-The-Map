@@ -15,6 +15,8 @@ class ListViewController: UIViewController {
     @IBOutlet var studentDataTableView: UITableView!
     
     override func viewDidLoad() {
+       // studentDataTableView.delegate = self
+        studentDataTableView.dataSource = self
         super.viewDidLoad()
         UdacityClient.getStudentLocation(completion: handleStudentData(studentData:error:))
         // Do any additional setup after loading the view.
