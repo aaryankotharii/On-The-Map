@@ -26,9 +26,16 @@ class TabBarController: UITabBarController {
 
     @IBAction func postLocationClicked(_ sender: Any) {
         print("Post")
+        goToLocationVC()
     }
     @IBAction func refreshDataClicked(_ sender: Any) {
         print("Refresh")
+    }
+    
+    func goToLocationVC(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "LocationViewController") as LocationViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
