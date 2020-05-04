@@ -15,6 +15,7 @@ class UdacityClient {
         
         case login
         case studentLocation
+        case signup
         
         var stringValue : String{
             switch self {
@@ -22,6 +23,8 @@ class UdacityClient {
                 return "https://onthemap-api.udacity.com/v1/session"
             case .studentLocation:
                 return "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt"
+            case .signup:
+                return "https://auth.udacity.com/sign-up"
             }
         }
         var url : URL {

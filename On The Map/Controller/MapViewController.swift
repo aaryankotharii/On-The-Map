@@ -7,11 +7,25 @@
 //
 
 import UIKit
+import MapKit
 
 class MapViewController: UIViewController {
+    
+    @IBOutlet var mapView: MKMapView!
+    
+    var studentData = [StudentLocation]()
+    var annotations = [MKPointAnnotation]()
+
 
     override func viewDidLoad() {
+        
+        mapView.delegate = self
         super.viewDidLoad()
-       
+      //  UdacityClient.getStudentLocation(completion: handleStudentData(studentData:error:))
     }
+    
+}
+
+extension MapViewController: MKMapViewDelegate{
+    
 }
