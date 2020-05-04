@@ -29,6 +29,7 @@
 		5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */; };
 		5B5A79F4245E77C2003A99EA /* StudentDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79F3245E77C2003A99EA /* StudentDataBase.swift */; };
 		5BE59111245FDF8300F73DC3 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59110245FDF8300F73DC3 /* LocationViewController.swift */; };
+		5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59112245FE52E00F73DC3 /* LinkViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataTableViewCell.swift; sourceTree = "<group>"; };
 		5B5A79F3245E77C2003A99EA /* StudentDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataBase.swift; sourceTree = "<group>"; };
 		5BE59110245FDF8300F73DC3 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		5BE59112245FE52E00F73DC3 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				5B582F0E245DDF5C00C8B875 /* MapViewController.swift */,
 				5B582F10245DDF6300C8B875 /* ListViewController.swift */,
 				5BE59110245FDF8300F73DC3 /* LocationViewController.swift */,
+				5BE59112245FE52E00F73DC3 /* LinkViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				5B582F11245DDF6300C8B875 /* ListViewController.swift in Sources */,
 				5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */,
 				5B582EFA245D639200C8B875 /* LoginViewController.swift in Sources */,
+				5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */,
 				5B582EE7245D5D9600C8B875 /* ViewController.swift in Sources */,
 				5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */,
 				5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */,
