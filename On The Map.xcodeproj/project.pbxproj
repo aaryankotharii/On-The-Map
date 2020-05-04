@@ -32,6 +32,7 @@
 		5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59112245FE52E00F73DC3 /* LinkViewController.swift */; };
 		5BE59115245FF57100F73DC3 /* NewStudentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */; };
 		5BE59117245FF5C100F73DC3 /* NewStudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59116245FF5C100F73DC3 /* NewStudentResponse.swift */; };
+		5BE591192460618F00F73DC3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE591182460618F00F73DC3 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		5BE59112245FE52E00F73DC3 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentRequest.swift; sourceTree = "<group>"; };
 		5BE59116245FF5C100F73DC3 /* NewStudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentResponse.swift; sourceTree = "<group>"; };
+		5BE591182460618F00F73DC3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				5B582F10245DDF6300C8B875 /* ListViewController.swift */,
 				5BE59110245FDF8300F73DC3 /* LocationViewController.swift */,
 				5BE59112245FE52E00F73DC3 /* LinkViewController.swift */,
+				5BE591182460618F00F73DC3 /* TabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				5B582F05245DC7F900C8B875 /* String+Extension.swift in Sources */,
 				5B582F02245D6D2D00C8B875 /* error-Response.swift in Sources */,
 				5B5A79EE245E04C0003A99EA /* UserData.swift in Sources */,
+				5BE591192460618F00F73DC3 /* TabBarController.swift in Sources */,
 				5B582F07245DCAFD00C8B875 /* LoginResponse.swift in Sources */,
 				5B582EFC245D63F300C8B875 /* UdacityClient.swift in Sources */,
 				5BE59111245FDF8300F73DC3 /* LocationViewController.swift in Sources */,

@@ -183,6 +183,4 @@ class UdacityClient {
         }
         task.resume()
     }
-
-
 }
