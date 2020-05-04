@@ -26,7 +26,7 @@ class LocationViewController: UIViewController {
     
 
     @IBAction func findClicked(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "tolinkvc", sender: locationTextView.text)
     }
     
     // MARK: - Navigation

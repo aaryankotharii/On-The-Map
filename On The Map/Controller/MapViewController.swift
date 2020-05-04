@@ -13,14 +13,14 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     
-    //var studentData = [StudentInformation]()
+    var studentData = [StudentInformation]()
     var annotations = [MKPointAnnotation]()
 
 
     override func viewDidLoad() {
         mapView.delegate = self
         super.viewDidLoad()
-      //  UdacityClient.getStudentInformation(completion: handleStudentData(studentData:error:))
+        //UdacityClient.getStudentInformation(completion: handleStudentData(studentData:error:))
         
     }
     
