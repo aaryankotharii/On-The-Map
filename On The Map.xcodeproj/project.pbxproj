@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		5BE59115245FF57100F73DC3 /* NewStudentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */; };
 		5BE59117245FF5C100F73DC3 /* NewStudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59116245FF5C100F73DC3 /* NewStudentResponse.swift */; };
 		5BE591192460618F00F73DC3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE591182460618F00F73DC3 /* TabBarController.swift */; };
+		5BE591232460A67300F73DC3 /* FacebookClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE591222460A67300F73DC3 /* FacebookClient.swift */; };
 		8986DCE682991E18FA4E386F /* Pods_On_The_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633E7A6B35321C99BF1927A3 /* Pods_On_The_Map.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentRequest.swift; sourceTree = "<group>"; };
 		5BE59116245FF5C100F73DC3 /* NewStudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentResponse.swift; sourceTree = "<group>"; };
 		5BE591182460618F00F73DC3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		5BE591222460A67300F73DC3 /* FacebookClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookClient.swift; sourceTree = "<group>"; };
 		633E7A6B35321C99BF1927A3 /* Pods_On_The_Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_On_The_Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C13903FA2BECE30DAAE1436 /* Pods-On The Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-On The Map.debug.xcconfig"; path = "Target Support Files/Pods-On The Map/Pods-On The Map.debug.xcconfig"; sourceTree = "<group>"; };
 		CA8990CDB569DE0899155E99 /* Pods-On The Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-On The Map.release.xcconfig"; path = "Target Support Files/Pods-On The Map/Pods-On The Map.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +90,6 @@
 				6C13903FA2BECE30DAAE1436 /* Pods-On The Map.debug.xcconfig */,
 				CA8990CDB569DE0899155E99 /* Pods-On The Map.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -135,6 +136,7 @@
 				5B582EFB245D63F300C8B875 /* UdacityClient.swift */,
 				5B582EFF245D646F00C8B875 /* Requests */,
 				5B5A79F3245E77C2003A99EA /* StudentDataBase.swift */,
+				5BE591222460A67300F73DC3 /* FacebookClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +333,7 @@
 				5B582EFA245D639200C8B875 /* LoginViewController.swift in Sources */,
 				5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */,
 				5B582EE7245D5D9600C8B875 /* ViewController.swift in Sources */,
+				5BE591232460A67300F73DC3 /* FacebookClient.swift in Sources */,
 				5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */,
 				5BE59117245FF5C100F73DC3 /* NewStudentResponse.swift in Sources */,
 				5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */,
