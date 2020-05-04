@@ -75,7 +75,7 @@ class UdacityClient {
     
     
     
-    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
+    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType,isLogin : Bool = false, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         // request.httpBody = try! JSONEncoder().encode(body)
@@ -96,7 +96,7 @@ class UdacityClient {
                 return
             }
             let decoder = JSONDecoder()
-            let newData = data.subdata(in: Range(uncheckedBounds: (5, data.count)))
+            let newData = isLogin ? data.subdata(in: Range(uncheckedBounds: (5, data.count))) : data
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: newData)
                 DispatchQueue.main.async {
@@ -123,7 +123,7 @@ class UdacityClient {
     class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let loginUser = User(username: username, password: password)
         let body = Udacity.init(udacity: loginUser)
-        taskForPOSTRequest(url: Endpoints.login.url, responseType: Auth.self, body: body) { response, error in
+        taskForPOSTRequest(url: Endpoints.login.url, responseType: Auth.self, body: body, isLogin: true) { response, error in
             if let response = response {
                 print(response,"Response")
                 //Auth.requestToken = response.requestToken
@@ -144,7 +144,16 @@ class UdacityClient {
         }
     }
     
-    class func createNewStudentLocation(completion: @escaping (Bool, Error?) -> Void){
-       
+    class func createNewStudentLocation(data: NewLocation,completion: @escaping (Bool, Error?) -> Void){
+        let body =  data
+        taskForPOSTRequest(url: Endpoints.newStudent.url, responseType: newStudentLocation.self, body: body) { response, error in
+            if let response = response {
+                print(response,"Response")
+                //newStudentLocation = response
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        }
     }
 }
