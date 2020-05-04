@@ -17,14 +17,18 @@ class TabBarController: UITabBarController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    @IBAction func logotuClicked(_ sender: Any) {
+        UdacityClient.logout {
+                    UserDefaults.standard.setValue(false, forKey: "login")
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        }
     }
-    */
 
+    @IBAction func postLocationClicked(_ sender: Any) {
+        print("Post")
+    }
+    @IBAction func refreshDataClicked(_ sender: Any) {
+        print("Refresh")
+    }
+    
 }

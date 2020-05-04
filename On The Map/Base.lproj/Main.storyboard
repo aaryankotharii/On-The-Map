@@ -200,6 +200,9 @@
                                 <rect key="frame" x="20" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logotuClicked:" destination="NCc-JE-JBZ" eventType="touchUpInside" id="eJO-k2-pKS"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -208,6 +211,9 @@
                                     <rect key="frame" x="364" y="10" width="30" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="icon_refresh"/>
+                                    <connections>
+                                        <action selector="refreshDataClicked:" destination="NCc-JE-JBZ" eventType="touchUpInside" id="1z2-cq-BUB"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                             <barButtonItem style="plain" id="fSt-Ig-YTu">
@@ -215,6 +221,9 @@
                                     <rect key="frame" x="326" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="icon_pin"/>
+                                    <connections>
+                                        <action selector="postLocationClicked:" destination="NCc-JE-JBZ" eventType="touchUpInside" id="DzX-Fn-2k4"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </rightBarButtonItems>

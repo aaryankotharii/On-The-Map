@@ -43,6 +43,8 @@ class LoginViewController: UIViewController {
             UIDevice.validVibrate()
             goToTabBar()
             print("Logged in")
+            UserDefaults.standard.setValue(true, forKey: "login")
+
         }else{
             if errorCheck() != nil { AuthAlert(errorCheck()!) ; return }
             AuthAlert(error?.localizedDescription ??  "Error")
