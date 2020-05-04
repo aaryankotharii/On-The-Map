@@ -280,6 +280,10 @@
                                 <state key="normal" title="Find on the Map">
                                     <color key="titleColor" red="0.029320839719999998" green="0.3411764706" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="findClicked:" destination="A4P-d8-1uf" eventType="touchUpInside" id="yYf-6h-4D4"/>
+                                    <segue destination="krK-06-3dE" kind="show" identifier="tolinkvc" id="sCx-9n-fIQ"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPY-Ob-8D7">
                                 <rect key="frame" x="0.0" y="44" width="414" height="304"/>
@@ -330,6 +334,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iSv-en-cV1"/>
                     </view>
+                    <connections>
+                        <outlet property="findOnMapButton" destination="ieG-ml-H3J" id="NjV-DO-OVY"/>
+                        <outlet property="locationTextView" destination="lYa-lH-rvG" id="c5S-Z4-cyh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JZ-Zh-086" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -338,7 +346,7 @@
         <!--Link View Controller-->
         <scene sceneID="z77-JV-lwe">
             <objects>
-                <viewController id="krK-06-3dE" customClass="LinkViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="krK-06-3dE" customClass="LinkViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="goV-Kb-RAi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -396,6 +404,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="16L-Q6-kjR"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4WJ-NT-pEi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wz-Eu-pCi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

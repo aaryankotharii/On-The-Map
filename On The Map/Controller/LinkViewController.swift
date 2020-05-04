@@ -10,6 +10,8 @@ import UIKit
 
 class LinkViewController: UIViewController {
 
+    var location : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
