@@ -12,8 +12,14 @@ class LocationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true);
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTapped))
 
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func cancelTapped(){
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 
