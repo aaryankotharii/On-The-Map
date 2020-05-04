@@ -14,17 +14,23 @@ class UdacityClient {
     enum Endpoints {
         
         case login
-        case studentLocation
+        case StudentInformation
         case signup
+        case newStudent
+        case updateStudent(objectID : String)
         
         var stringValue : String{
             switch self {
             case .login:
                 return "https://onthemap-api.udacity.com/v1/session"
-            case .studentLocation:
-                return "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt"
+            case .StudentInformation:
+                return "https://onthemap-api.udacity.com/v1/StudentInformation?order=-updatedAt"
             case .signup:
                 return "https://auth.udacity.com/sign-up"
+            case .newStudent:
+                return "https://onthemap-api.udacity.com/v1/StudentLocation"
+            case .updateStudent(let objectId):
+                return "https://onthemap-api.udacity.com/v1/StudentLocation/" + objectId
             }
         }
         var url : URL {
@@ -128,13 +134,17 @@ class UdacityClient {
         }
     }
     
-   class func getStudentLocation(completion: @escaping ([StudentLocation], Error?) -> Void) {
-        taskForGETRequest(url: Endpoints.studentLocation.url, responseType: StudentData.self) { response, error in
+   class func getStudentInformation(completion: @escaping ([StudentInformation], Error?) -> Void) {
+        taskForGETRequest(url: Endpoints.StudentInformation.url, responseType: StudentData.self) { response, error in
             if let response = response {
                 completion(response.results, nil)
             } else {
                 completion([], error)
             }
         }
+    }
+    
+    class func createNewStudentLocation(completion: @escaping (Bool, Error?) -> Void){
+       
     }
 }

@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
     
     func goToTabBar(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "tabbar") as! UITabBarController
+        let vc = storyboard.instantiateViewController(identifier: "nav") as! UINavigationController
         self.present(vc, animated: true)
     }
 }

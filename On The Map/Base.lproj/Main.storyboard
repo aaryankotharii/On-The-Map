@@ -92,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-17" y="130"/>
+            <point key="canvasLocation" x="-874" y="130"/>
         </scene>
         <!--Map-->
         <scene sceneID="tmv-fm-5Tf">
@@ -102,28 +102,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJo-iN-Hq6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="On The Map" id="D9h-OW-a27">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="drV-11-71r">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c5Q-IT-Vwn">
-                                                <rect key="frame" x="20" y="10" width="24" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <state key="normal" image="icon_addpin"/>
-                                            </button>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="2eL-FO-G20">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bbb-Uj-vnC">
-                                                <rect key="frame" x="266" y="0.0" width="128" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="icon_refresh"/>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hMv-g7-TQH">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </mapView>
@@ -131,12 +109,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="zj2-Kc-awu" firstAttribute="bottom" secondItem="hMv-g7-TQH" secondAttribute="bottom" id="2dV-JI-51T"/>
-                            <constraint firstItem="eJo-iN-Hq6" firstAttribute="trailing" secondItem="zj2-Kc-awu" secondAttribute="trailing" id="B2w-HW-471"/>
-                            <constraint firstItem="eJo-iN-Hq6" firstAttribute="top" secondItem="zj2-Kc-awu" secondAttribute="top" id="ODr-86-XhC"/>
                             <constraint firstItem="hMv-g7-TQH" firstAttribute="leading" secondItem="zj2-Kc-awu" secondAttribute="leading" id="T4N-BM-1Jf"/>
-                            <constraint firstItem="hMv-g7-TQH" firstAttribute="top" secondItem="eJo-iN-Hq6" secondAttribute="bottom" id="TCn-lX-4lG"/>
-                            <constraint firstItem="eJo-iN-Hq6" firstAttribute="leading" secondItem="zj2-Kc-awu" secondAttribute="leading" id="kJA-de-IYq"/>
                             <constraint firstItem="zj2-Kc-awu" firstAttribute="trailing" secondItem="hMv-g7-TQH" secondAttribute="trailing" id="sAP-5Z-CxW"/>
+                            <constraint firstItem="hMv-g7-TQH" firstAttribute="top" secondItem="zj2-Kc-awu" secondAttribute="top" id="wP8-Sz-z1z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zj2-Kc-awu"/>
                     </view>
@@ -157,20 +132,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdP-7E-eVb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="ODF-n2-Rwm">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="1V2-2D-KfL">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BLM-ng-7Gy">
-                                                <rect key="frame" x="20" y="7" width="92" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I7u-Lr-SQV">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -212,13 +173,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="IdP-7E-eVb" firstAttribute="trailing" secondItem="tyN-3a-l5r" secondAttribute="trailing" id="HLE-fY-OIq"/>
+                            <constraint firstItem="I7u-Lr-SQV" firstAttribute="top" secondItem="tyN-3a-l5r" secondAttribute="top" id="0Wq-hj-Hlq"/>
                             <constraint firstItem="I7u-Lr-SQV" firstAttribute="leading" secondItem="tyN-3a-l5r" secondAttribute="leading" id="Zcf-Nh-CiF"/>
                             <constraint firstItem="tyN-3a-l5r" firstAttribute="trailing" secondItem="I7u-Lr-SQV" secondAttribute="trailing" id="a7a-p7-4vA"/>
-                            <constraint firstItem="I7u-Lr-SQV" firstAttribute="top" secondItem="IdP-7E-eVb" secondAttribute="bottom" id="bk4-K7-LZ4"/>
                             <constraint firstItem="tyN-3a-l5r" firstAttribute="bottom" secondItem="I7u-Lr-SQV" secondAttribute="bottom" id="djv-eP-1rx"/>
-                            <constraint firstItem="IdP-7E-eVb" firstAttribute="top" secondItem="tyN-3a-l5r" secondAttribute="top" id="ozZ-aO-idr"/>
-                            <constraint firstItem="IdP-7E-eVb" firstAttribute="leading" secondItem="tyN-3a-l5r" secondAttribute="leading" id="wki-ab-EPa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tyN-3a-l5r"/>
                     </view>
@@ -395,15 +353,29 @@
             </objects>
             <point key="canvasLocation" x="4021.739130434783" y="270.53571428571428"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gqN-5B-aJ9">
+            <objects>
+                <navigationController storyboardIdentifier="nav" modalPresentationStyle="fullScreen" id="eGh-Wl-ABQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ju7-6r-Ocg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NCc-JE-JBZ" kind="relationship" relationship="rootViewController" id="2Yu-bi-heP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CT6-2V-4dW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232" y="130"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
-        <image name="icon_refresh" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
 </document>

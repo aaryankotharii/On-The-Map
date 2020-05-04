@@ -10,7 +10,7 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var studentData = [StudentLocation]()
+    var studentData = [StudentInformation]()
 
     @IBOutlet var studentDataTableView: UITableView!
     
@@ -18,11 +18,11 @@ class ListViewController: UIViewController {
        // studentDataTableView.delegate = self
         studentDataTableView.dataSource = self
         super.viewDidLoad()
-        UdacityClient.getStudentLocation(completion: handleStudentData(studentData:error:))
+        UdacityClient.getStudentInformation(completion: handleStudentData(studentData:error:))
         // Do any additional setup after loading the view.
     }
     
-    func handleStudentData(studentData:[StudentLocation], error:Error?){
+    func handleStudentData(studentData:[StudentInformation], error:Error?){
         self.studentData = studentData
         DispatchQueue.main.async {   self.studentDataTableView.reloadData()  }
     }
