@@ -30,4 +30,26 @@ extension LoginViewController {
             }
         }
     }
-}
+    
+    func getUserData(){
+        if((AccessToken.current) != nil){
+                  GraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email, gender"]).start(completionHandler: { (connection, result, error) -> Void in
+                    
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+                          
+                          let dict = result as! [String : AnyObject]
+                          let picutreDic = dict as NSDictionary
+                          
+                          let name = picutreDic.object(forKey: "name") as! String
+                          print("name:- ",name)
+                          
+                          let emailAddress = picutreDic.object(forKey: "email")
+                          print("email:- ",emailAddress)
+                  })
+              }
+          }
+    }
+
