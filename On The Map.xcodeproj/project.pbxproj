@@ -30,8 +30,8 @@
 		5B5A79F4245E77C2003A99EA /* StudentDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79F3245E77C2003A99EA /* StudentDataBase.swift */; };
 		5BE59111245FDF8300F73DC3 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59110245FDF8300F73DC3 /* LocationViewController.swift */; };
 		5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59112245FE52E00F73DC3 /* LinkViewController.swift */; };
-		5BE59115245FF57100F73DC3 /* StudentLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59114245FF57000F73DC3 /* StudentLocationRequest.swift */; };
-		5BE59117245FF5C100F73DC3 /* NewStudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59116245FF5C100F73DC3 /* NewStudentLocationResponse.swift */; };
+		5BE59115245FF57100F73DC3 /* NewStudentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */; };
+		5BE59117245FF5C100F73DC3 /* NewStudentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59116245FF5C100F73DC3 /* NewStudentResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +60,8 @@
 		5B5A79F3245E77C2003A99EA /* StudentDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataBase.swift; sourceTree = "<group>"; };
 		5BE59110245FDF8300F73DC3 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		5BE59112245FE52E00F73DC3 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
-		5BE59114245FF57000F73DC3 /* StudentLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationRequest.swift; sourceTree = "<group>"; };
-		5BE59116245FF5C100F73DC3 /* NewStudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentLocationResponse.swift; sourceTree = "<group>"; };
+		5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentRequest.swift; sourceTree = "<group>"; };
+		5BE59116245FF5C100F73DC3 /* NewStudentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				5B582EFD245D646B00C8B875 /* LoginRequest.swift */,
-				5BE59114245FF57000F73DC3 /* StudentLocationRequest.swift */,
+				5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 				5B582F06245DCAFD00C8B875 /* LoginResponse.swift */,
 				5B5A79ED245E04C0003A99EA /* UserData.swift */,
 				5B5A79EF245E0D22003A99EA /* StudentLocation.swift */,
-				5BE59116245FF5C100F73DC3 /* NewStudentLocationResponse.swift */,
+				5BE59116245FF5C100F73DC3 /* NewStudentResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -252,14 +252,14 @@
 				5B582EFC245D63F300C8B875 /* UdacityClient.swift in Sources */,
 				5BE59111245FDF8300F73DC3 /* LocationViewController.swift in Sources */,
 				5B582F0B245DD3D600C8B875 /* haptic+Feedback.swift in Sources */,
-				5BE59115245FF57100F73DC3 /* StudentLocationRequest.swift in Sources */,
+				5BE59115245FF57100F73DC3 /* NewStudentRequest.swift in Sources */,
 				5B582F11245DDF6300C8B875 /* ListViewController.swift in Sources */,
 				5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */,
 				5B582EFA245D639200C8B875 /* LoginViewController.swift in Sources */,
 				5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */,
 				5B582EE7245D5D9600C8B875 /* ViewController.swift in Sources */,
 				5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */,
-				5BE59117245FF5C100F73DC3 /* NewStudentLocationResponse.swift in Sources */,
+				5BE59117245FF5C100F73DC3 /* NewStudentResponse.swift in Sources */,
 				5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */,
 				5B582EFE245D646B00C8B875 /* LoginRequest.swift in Sources */,
 				5B582EE3245D5D9600C8B875 /* AppDelegate.swift in Sources */,

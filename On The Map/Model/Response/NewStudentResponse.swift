@@ -1,5 +1,5 @@
 //
-//  NewStudentLocationResponse.swift
+//  NewStudentResponseResponse.swift
 //  On The Map
 //
 //  Created by Aaryan Kothari on 04/05/20.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct newStudentLocation : Codable{
+struct NewStudentResponse : Codable{
      var objectId : String
      var createdAt : String
 }

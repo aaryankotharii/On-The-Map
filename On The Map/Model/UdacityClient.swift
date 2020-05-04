@@ -18,6 +18,7 @@ class UdacityClient {
         case signup
         case newStudent
         case updateStudent(objectID : String)
+        case logout
         
         var stringValue : String{
             switch self {
@@ -31,6 +32,8 @@ class UdacityClient {
                 return "https://onthemap-api.udacity.com/v1/StudentLocation"
             case .updateStudent(let objectId):
                 return "https://onthemap-api.udacity.com/v1/StudentLocation/" + objectId
+            case .logout:
+                return "https://onthemap-api.udacity.com/v1/session"
             }
         }
         var url : URL {
@@ -144,16 +147,42 @@ class UdacityClient {
         }
     }
     
-    class func createNewStudentLocation(data: NewLocation,completion: @escaping (Bool, Error?) -> Void){
+    class func createNewStudentLocation(data: NewStudentRequest,completion: @escaping (Bool, Error?) -> Void){
         let body =  data
-        taskForPOSTRequest(url: Endpoints.newStudent.url, responseType: newStudentLocation.self, body: body) { response, error in
+        taskForPOSTRequest(url: Endpoints.newStudent.url, responseType: NewStudentResponse.self, body: body) { response, error in
             if let response = response {
                 print(response,"Response")
-                //newStudentLocation = response
+                //NewStudentResponse = response
                 completion(true, nil)
             } else {
                 completion(false, error)
             }
         }
     }
+    
+    
+    class func logout(completion: @escaping () -> Void) {
+        
+        var request = URLRequest(url: Endpoints.logout.url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil { // Handle error…
+                return
+            }
+            let newData = data!.subdata(in: Range(uncheckedBounds: (5, data!.count)))
+            print(String(data: newData, encoding: .utf8)!)
+        }
+        task.resume()
+    }
+
+
 }
