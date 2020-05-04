@@ -227,6 +227,21 @@
             </objects>
             <point key="canvasLocation" x="1070" y="130"/>
         </scene>
+        <!--Location View Controller-->
+        <scene sceneID="eDM-PT-bQD">
+            <objects>
+                <viewController id="A4P-d8-1uf" customClass="LocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kIr-AW-bky">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iSv-en-cV1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1JZ-Zh-086" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3590" y="250"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_listview-deselected" width="75" height="50"/>
