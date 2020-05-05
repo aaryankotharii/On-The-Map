@@ -8,10 +8,14 @@
 
 import UIKit
 import MapKit
+import WebKit
 
 class LinkViewController: UIViewController {
 
     @IBOutlet var mapView: MKMapView!
+    
+    @IBOutlet var webView: WKWebView!
+    
     @IBOutlet var linkTextView: UITextView!
     
     
@@ -26,11 +30,36 @@ class LinkViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showWebsite(URL(string: "https://www.google.com")!)
+    }
+    
     @IBAction func submitClicked(_ sender: UIButton) {
         let student = NewStudentRequest(uniqueKey: "1234", firstName: "Aaryan", lastName: "Kothari", mapString: address, mediaURL: "facebook.com", latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude))
-        UdacityClient.createNewStudentLocation(data: student) { (success, error) in
-            print(success,error)
+        UdacityClient.createNewStudentLocation(data: student, completion: handleCreateNewStudent(success:error:))
+    }
+    
+    func handleCreateNewStudent(success:Bool,error:Error?){
+        if success {
+            print("Success")
+        } else {
+            print(error?.localizedDescription)
         }
     }
     
+}
+
+//MARK:- WKNavigation Delegate Methods
+extension LinkViewController: WKNavigationDelegate {
+    func showWebsite(_ url : URL){
+        
+        print("Success")
+                
+        webView.navigationDelegate = self
+                        
+        webView.load(URLRequest(url: url))
+        
+        webView.allowsBackForwardNavigationGestures = true
+    }
 }
