@@ -18,6 +18,7 @@ class LinkViewController: UIViewController {
     
     @IBOutlet var linkTextView: UITextView!
     
+    @IBOutlet var webViewWidth: NSLayoutConstraint!
     
     var location : CLLocation!
     var address : String!
@@ -32,7 +33,7 @@ class LinkViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        showWebsite(URL(string: "https://www.google.com")!)
+        showWebsite(URL(string: "https://stackoverflow.com/questions/703754/how-to-dismiss-keyboard-for-uitextview-with-return-key")!)
     }
     
     @IBAction func submitClicked(_ sender: UIButton) {
@@ -61,5 +62,28 @@ extension LinkViewController: WKNavigationDelegate {
         webView.load(URLRequest(url: url))
         
         webView.allowsBackForwardNavigationGestures = true
+    }
+}
+
+extension LinkViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("END")
+        
+        let newConstraint = webViewWidth.constraintWithMultiplier(0.75)
+        webView.removeConstraint(webViewWidth)
+        webView.addConstraint(newConstraint)
+        webViewWidth = newConstraint
+
+        UIView.animate(withDuration: 0.1,
+        delay: TimeInterval(0),
+        options: .curveEaseIn,
+        animations: { self.view.layoutIfNeeded() },
+        completion: nil)
+    }
+}
+
+extension NSLayoutConstraint {
+    func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: self.firstItem!, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
     }
 }
