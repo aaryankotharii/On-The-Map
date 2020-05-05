@@ -70,7 +70,7 @@ class LoginViewController: UIViewController {
     
     func handleFacebookData(success:Bool,data:fbData,error:Error?){
         if success {
-            print(fbData)
+            print(data)
         }else{
             print(error?.localizedDescription)
         }
