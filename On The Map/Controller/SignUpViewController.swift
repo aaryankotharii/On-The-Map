@@ -10,27 +10,24 @@ import UIKit
 import WebKit
 
 class SignUpViewController: UIViewController, WKNavigationDelegate {
-
+    
+    //MARK: WebView to display Udacity website
     @IBOutlet var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://auth.udacity.com/sign-up")
-        showWebsite(url!)
-        // Do any additional setup after loading the view.
     }
+    
+    //MARK:- webView setup
+    func setupWebView(){
+        webView.navigationDelegate = self
+        let url = URL(string: "https://auth.udacity.com/sign-up")       /// Udacity Signup page url
+        webView.load(URLRequest(url: url!))         ///Display website
+    }
+    
+    //MARK: Dissmiss ViewController
     @IBAction func doneClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func showWebsite(_ url : URL){
-                        
-        webView.navigationDelegate = self
-                        
-        webView.load(URLRequest(url: url))
-        
-        webView.allowsBackForwardNavigationGestures = true
-    }
-    
-    
-}
+} // End ViewController
