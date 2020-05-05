@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SafariServices
 
 class MapViewController: UIViewController {
     
@@ -83,9 +84,14 @@ extension MapViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.shared
-            if let toOpen = view.annotation?.subtitle! {
-                app.openURL(URL(string: toOpen)!)
+            let mediaUrl = ((view.annotation?.subtitle) ?? "") ?? ""
+            if let url = URL(string: mediaUrl) {
+                if url.isValid{
+                    let vc = SFSafariViewController(url: url)
+                    present(vc, animated: true) /// Present safariVC
+                }else{
+                    AuthAlert("The User did not sumbit a valid URL. Try another one maybe?")
+                }
             }
         }
     }

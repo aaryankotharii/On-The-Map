@@ -28,7 +28,7 @@
 		5B5A79F0245E0D22003A99EA /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79EF245E0D22003A99EA /* StudentLocation.swift */; };
 		5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */; };
 		5BD566562461A777008BDC65 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD566552461A777008BDC65 /* SignUpViewController.swift */; };
-		5BD566582461FC80008BDC65 /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD566572461FC80008BDC65 /* infoViewController.swift */; };
+		5BD5665A2461FE19008BDC65 /* Url+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD566592461FE19008BDC65 /* Url+Extension.swift */; };
 		5BE59111245FDF8300F73DC3 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59110245FDF8300F73DC3 /* LocationViewController.swift */; };
 		5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59112245FE52E00F73DC3 /* LinkViewController.swift */; };
 		5BE59115245FF57100F73DC3 /* NewStudentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */; };
@@ -63,7 +63,7 @@
 		5B5A79EF245E0D22003A99EA /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataTableViewCell.swift; sourceTree = "<group>"; };
 		5BD566552461A777008BDC65 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		5BD566572461FC80008BDC65 /* infoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
+		5BD566592461FE19008BDC65 /* Url+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Url+Extension.swift"; sourceTree = "<group>"; };
 		5BE59110245FDF8300F73DC3 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		5BE59112245FE52E00F73DC3 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		5BE59114245FF57000F73DC3 /* NewStudentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentRequest.swift; sourceTree = "<group>"; };
@@ -163,7 +163,6 @@
 				5BE59112245FE52E00F73DC3 /* LinkViewController.swift */,
 				5BE591182460618F00F73DC3 /* TabBarController.swift */,
 				5BD566552461A777008BDC65 /* SignUpViewController.swift */,
-				5BD566572461FC80008BDC65 /* infoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +195,7 @@
 				5B582F08245DCBCD00C8B875 /* Alerts.swift */,
 				5B582F0A245DD3D600C8B875 /* haptic+Feedback.swift */,
 				5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */,
+				5BD566592461FE19008BDC65 /* Url+Extension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -337,7 +337,6 @@
 				5BE59115245FF57100F73DC3 /* NewStudentRequest.swift in Sources */,
 				5B582F11245DDF6300C8B875 /* ListViewController.swift in Sources */,
 				5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */,
-				5BD566582461FC80008BDC65 /* infoViewController.swift in Sources */,
 				5B582EFA245D639200C8B875 /* LoginViewController.swift in Sources */,
 				5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */,
 				5B582EE7245D5D9600C8B875 /* ViewController.swift in Sources */,
@@ -346,6 +345,7 @@
 				5BE59117245FF5C100F73DC3 /* NewStudentResponse.swift in Sources */,
 				5B582F09245DCBCD00C8B875 /* Alerts.swift in Sources */,
 				5BEC28F82461424500F491BF /* MapClient.swift in Sources */,
+				5BD5665A2461FE19008BDC65 /* Url+Extension.swift in Sources */,
 				5B582EFE245D646B00C8B875 /* LoginRequest.swift in Sources */,
 				5B582EE3245D5D9600C8B875 /* AppDelegate.swift in Sources */,
 				5B582EE5245D5D9600C8B875 /* SceneDelegate.swift in Sources */,

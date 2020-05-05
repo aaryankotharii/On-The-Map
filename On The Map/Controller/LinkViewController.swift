@@ -44,6 +44,8 @@ class LinkViewController: UIViewController {
             print(error?.localizedDescription)
         }
     }
+    
+    //TODO
     //MARK: Check for Valid URL
     func urlChecker (_ urlString: String) -> Bool {
         if let url = NSURL(string: urlString) {
