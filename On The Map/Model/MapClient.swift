@@ -11,6 +11,8 @@ import MapKit
 
 class MapClient{
     
+    var mapString = String()
+    
     class func TextToLocation(_ address : String, completion: @escaping (CLLocation?, Error?) -> Void){
         let geoCoder = CLGeocoder()
         
@@ -26,15 +28,13 @@ class MapClient{
         }
     }
     
-    private func locationToText(_ location: CLLocation) -> CLPlacemark?{
+    class func locationToText(_ location: CLLocation,completion: @escaping (CLPlacemark)-> Void){
         let geoCoder = CLGeocoder()
-        var address = CLPlacemark()
         geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
         if let _ = error {  return }
         guard let placemark = placemarks?.first else { return }
-        address = placemark
+        completion(placemark)
         }
-        return address
     }
     
     class func setUpMap(_ location: CLLocation, mapView: MKMapView){
@@ -47,13 +47,18 @@ class MapClient{
         mapRegion.span.longitudeDelta = mapRegionSpan
 
         mapView.setRegion(mapRegion, animated: true)
+        
+        locationToText(location) { (placemark) in
+                 let streetName = placemark.thoroughfare ?? ""
+               let cityState  = "\(placemark.locality ?? ""),\(placemark.administrativeArea ?? "")"
 
-        // Create a map annotation
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location.coordinate
-        annotation.title = "Apple Inc."
-        annotation.subtitle = "One Apple Park Way, Cupertino, California."
+               // Create a map annotation
+               let annotation = MKPointAnnotation()
+               annotation.coordinate = location.coordinate
+               annotation.title = cityState
+               annotation.subtitle = "\(streetName), \(cityState)"
 
-        mapView.addAnnotation(annotation)
+               mapView.addAnnotation(annotation)
+        }
     }
 }
