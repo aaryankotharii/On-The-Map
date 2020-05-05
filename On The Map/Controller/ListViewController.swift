@@ -16,29 +16,17 @@ class ListViewController: UIViewController {
     @IBOutlet var studentDataTableView: UITableView!
     
     override func viewDidLoad() {
-       // studentDataTableView.delegate = self
-        studentDataTableView.dataSource = self
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-
-
-        // Do any additional setup after loading the view.
     }
     
     @objc func loadList(){
-        //load data here
         data = (UIApplication.shared.delegate as! AppDelegate).data.results
         self.studentDataTableView.reloadData()
     }
-    
-    func handleStudentData(studentData:[StudentInformation], error:Error?){
-        print(studentData)
-        //self.studentData = studentData
-        DispatchQueue.main.async {   self.studentDataTableView.reloadData()  }
-    }
 }
 
-extension ListViewController: UITableViewDataSource{
+extension ListViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -53,5 +41,9 @@ extension ListViewController: UITableViewDataSource{
         cell.nameLabel.text = fullName
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
     }
 }
