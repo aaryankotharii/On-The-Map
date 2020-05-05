@@ -22,7 +22,6 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         super.viewDidLoad()
         //UdacityClient.getStudentInformation(completion: handleStudentData(studentData:error:))
-        
     }
     
 }

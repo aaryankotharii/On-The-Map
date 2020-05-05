@@ -25,7 +25,7 @@ class UdacityClient {
             case .login:
                 return "https://onthemap-api.udacity.com/v1/session"
             case .StudentInformation:
-                return "https://onthemap-api.udacity.com/v1/StudentInformation?order=-updatedAt"
+                return "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt"
             case .signup:
                 return "https://auth.udacity.com/sign-up"
             case .newStudent:

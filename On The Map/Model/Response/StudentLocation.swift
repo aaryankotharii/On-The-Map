@@ -24,5 +24,5 @@ struct StudentInformation: Codable {
 
 
 struct StudentData : Codable {
-    let results = [StudentInformation]()
+    var results = [StudentInformation]()
 }
