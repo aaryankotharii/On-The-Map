@@ -18,6 +18,8 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        studentDataTableView.backgroundView = UIImageView(image:#imageLiteral(resourceName: "TableView background"))
+        studentDataTableView.backgroundView?.contentMode = .scaleAspectFit
     }
     
     @objc func loadList(){
@@ -44,6 +46,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        print(indexPath.row)
     }
 }
