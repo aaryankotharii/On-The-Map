@@ -13,12 +13,9 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     
+     let object = UIApplication.shared.delegate as! AppDelegate
     
-    var studentData : StudentData {
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        return appDelegate.data
-    }
+
     
     
     var annotations = [MKPointAnnotation]()
@@ -28,7 +25,12 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         mapView.delegate = self
         super.viewDidLoad()
-        SetupMap(studentData)
+      //  SetupMap(object.data)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        SetupMap(object.data)
     }
     
     func SetupMap(_ data : StudentData){
@@ -56,8 +58,6 @@ class MapViewController: UIViewController {
                 }
              self.mapView.addAnnotations(annotations)
         }
-    
-    
 }
 
 extension MapViewController: MKMapViewDelegate{

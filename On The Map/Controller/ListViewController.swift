@@ -11,11 +11,7 @@ import UIKit
 class ListViewController: UIViewController {
     
     
-    var studentData : [StudentInformation] {
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        return appDelegate.data.results
-    }
+    var data = (UIApplication.shared.delegate as! AppDelegate).data.results
 
     @IBOutlet var studentDataTableView: UITableView!
     
@@ -23,8 +19,16 @@ class ListViewController: UIViewController {
        // studentDataTableView.delegate = self
         studentDataTableView.dataSource = self
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+
 
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func loadList(){
+        //load data here
+        data = (UIApplication.shared.delegate as! AppDelegate).data.results
+        self.studentDataTableView.reloadData()
     }
     
     func handleStudentData(studentData:[StudentInformation], error:Error?){
@@ -36,13 +40,13 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studentData.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = studentDataTableView.dequeueReusableCell(withIdentifier: "cell") as! StudentDataTableViewCell
         
-        let student = studentData[indexPath.row]
+        let student = data[indexPath.row]
         
         let fullName = student.firstName + " " + student.lastName
         

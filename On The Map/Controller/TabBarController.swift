@@ -44,6 +44,7 @@ class TabBarController: UITabBarController {
             let object = UIApplication.shared.delegate
             let appDelegate = object as! AppDelegate
             appDelegate.data.results = data
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
     }
     
