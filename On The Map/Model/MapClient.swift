@@ -46,5 +46,15 @@ class MapClient{
         mapView.addAnnotation(annotation)
     }
     
-
+    class func locationToText(_ location: CLLocation, completion: @escaping (CLPlacemark?, Error?) -> Void){
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            
+        if let error = error {  completion(nil,error)  }
+        guard let placemark = placemarks?.first else { return }
+            
+        completion(placemark,nil)
+        }
+    }
 }
