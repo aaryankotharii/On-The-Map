@@ -9,13 +9,11 @@
 import UIKit
 
 extension UIViewController {
-    internal func AuthAlert(_ message:String, success : Bool, completion: @escaping ()->()){
+    internal func AuthAlert(_ message:String, success : Bool, completion: (() -> Void)? = nil){
         success ? UIDevice.validVibrate() : UIDevice.invalidVibrate()
         let title = success ? "Yay 😄" : "Uh Oh 🙁"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
-            completion()
-        }
+        let action = UIAlertAction(title: "OK", style: .default)
         alert.addAction(action)
         self.present(alert, animated: true)
     }
