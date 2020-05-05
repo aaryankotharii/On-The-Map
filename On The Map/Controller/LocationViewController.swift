@@ -36,6 +36,6 @@ class LocationViewController: UIViewController {
          if segue.identifier == "tolinkvc" {
                    let vc = segue.destination as! LinkViewController
             vc.location = sender as? String
-            }
+        }
     }
 }

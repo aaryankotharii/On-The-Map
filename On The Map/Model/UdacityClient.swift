@@ -128,9 +128,7 @@ class UdacityClient {
         let body = Udacity.init(udacity: loginUser)
         taskForPOSTRequest(url: Endpoints.login.url, responseType: Auth.self, body: body, isLogin: true) { response, error in
             if let response = response {
-                print(response,"Response")
-                //Auth.requestToken = response.requestToken
-                completion(true, nil)
+                print(response)
             } else {
                 completion(false, error)
             }
@@ -140,6 +138,7 @@ class UdacityClient {
    class func getStudentInformation(completion: @escaping ([StudentInformation], Error?) -> Void) {
         taskForGETRequest(url: Endpoints.StudentInformation.url, responseType: StudentData.self) { response, error in
             if let response = response {
+                print(response)
                 completion(response.results, nil)
             } else {
                 completion([], error)

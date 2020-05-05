@@ -18,7 +18,6 @@ class ListViewController: UIViewController {
        // studentDataTableView.delegate = self
         studentDataTableView.dataSource = self
         super.viewDidLoad()
-        print("Loaded ListVC")
         UdacityClient.getStudentInformation(completion: handleStudentData(studentData:error:))
         // Do any additional setup after loading the view.
     }
@@ -27,7 +26,6 @@ class ListViewController: UIViewController {
         print(studentData)
         self.studentData = studentData
         DispatchQueue.main.async {   self.studentDataTableView.reloadData()  }
-        print(error?.localizedDescription)
     }
 }
 
