@@ -67,23 +67,6 @@ extension LinkViewController: WKNavigationDelegate {
 
 extension LinkViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-        print("END")
-        
-        let newConstraint = webViewWidth.constraintWithMultiplier(0.75)
-        webView.removeConstraint(webViewWidth)
-        webView.addConstraint(newConstraint)
-        webViewWidth = newConstraint
-
-        UIView.animate(withDuration: 0.1,
-        delay: TimeInterval(0),
-        options: .curveEaseIn,
-        animations: { self.view.layoutIfNeeded() },
-        completion: nil)
-    }
-}
-
-extension NSLayoutConstraint {
-    func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: self.firstItem!, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
+        print("Ended editing")
     }
 }
