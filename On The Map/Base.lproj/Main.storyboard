@@ -397,7 +397,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="231.5"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a link top share here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KtX-aC-LAx">
-                                        <rect key="frame" x="10" y="54.5" width="354.5" height="113"/>
+                                        <rect key="frame" x="10" y="54.5" width="355" height="113"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="113" id="qJ5-Hj-DOI"/>
                                         </constraints>
@@ -409,7 +409,7 @@
                                         </connections>
                                     </textView>
                                     <wkWebView contentMode="scaleToFill" customUserAgent="" translatesAutoresizingMaskIntoConstraints="NO" id="75z-7S-jQp">
-                                        <rect key="frame" x="374.5" y="0.0" width="0.5" height="231.5"/>
+                                        <rect key="frame" x="375" y="0.0" width="187.5" height="231.5"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -421,11 +421,11 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="75z-7S-jQp" secondAttribute="bottom" id="7z3-eZ-smM"/>
                                     <constraint firstItem="KtX-aC-LAx" firstAttribute="leading" secondItem="ubf-cT-O46" secondAttribute="leading" constant="10" id="C70-mO-ZiV"/>
-                                    <constraint firstItem="75z-7S-jQp" firstAttribute="leading" secondItem="KtX-aC-LAx" secondAttribute="trailing" priority="499" constant="10" id="KVr-Xw-pne"/>
-                                    <constraint firstItem="75z-7S-jQp" firstAttribute="width" secondItem="ubf-cT-O46" secondAttribute="width" multiplier="0.001" id="QAE-8L-0DR"/>
-                                    <constraint firstAttribute="trailing" secondItem="75z-7S-jQp" secondAttribute="trailing" id="S5W-il-lcn"/>
+                                    <constraint firstItem="75z-7S-jQp" firstAttribute="width" secondItem="ubf-cT-O46" secondAttribute="width" multiplier="0.5" id="KAc-vY-Fvy"/>
                                     <constraint firstItem="KtX-aC-LAx" firstAttribute="centerY" secondItem="ubf-cT-O46" secondAttribute="centerY" constant="-4.5" id="VhQ-az-kKC"/>
                                     <constraint firstItem="75z-7S-jQp" firstAttribute="top" secondItem="ubf-cT-O46" secondAttribute="top" id="ho2-uA-MpA"/>
+                                    <constraint firstItem="75z-7S-jQp" firstAttribute="leading" secondItem="KtX-aC-LAx" secondAttribute="trailing" constant="10" id="pkk-ux-LtA"/>
+                                    <constraint firstAttribute="trailing" secondItem="75z-7S-jQp" secondAttribute="leading" id="zal-VL-Cn9"/>
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yhA-Uy-oAr">
@@ -469,7 +469,7 @@
                         <outlet property="linkTextView" destination="KtX-aC-LAx" id="aci-v9-Hfh"/>
                         <outlet property="mapView" destination="yhA-Uy-oAr" id="au2-iO-YEX"/>
                         <outlet property="webView" destination="75z-7S-jQp" id="h7e-iV-Fxg"/>
-                        <outlet property="webViewWidth" destination="QAE-8L-0DR" id="iE2-RR-mxs"/>
+                        <outlet property="webviewWidthAnchor" destination="zal-VL-Cn9" id="Eq1-a5-hlj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wz-Eu-pCi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

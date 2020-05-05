@@ -18,7 +18,8 @@ class LinkViewController: UIViewController {
     
     @IBOutlet var linkTextView: UITextView!
     
-    @IBOutlet var webViewWidth: NSLayoutConstraint!
+    
+    @IBOutlet var webviewWidthAnchor: NSLayoutConstraint!
     
     var location : CLLocation!
     var address : String!
@@ -48,6 +49,13 @@ class LinkViewController: UIViewController {
             print(error?.localizedDescription)
         }
     }
+    //MARK: Check for Valid URL
+    func urlChecker (_ urlString: String) -> Bool {
+        if let url = NSURL(string: urlString) {
+            return UIApplication.shared.canOpenURL(url as URL)
+        }
+        return false
+    }
     
 }
 
@@ -68,5 +76,13 @@ extension LinkViewController: WKNavigationDelegate {
 extension LinkViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         print("Ended editing")
-    }
-}
+        let width = webView.frame.width
+        webviewWidthAnchor.constant = width
+        UIView.animate(withDuration: 0.1,
+                                delay: TimeInterval(0),
+                                options: .curveEaseIn,
+                                animations: { self.view.layoutIfNeeded() },
+                                completion: nil)
+             }
+    }`
+
