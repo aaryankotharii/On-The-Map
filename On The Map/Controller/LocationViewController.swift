@@ -13,6 +13,7 @@ class LocationViewController: UIViewController {
 
     @IBOutlet var locationTextView: UITextView!
     @IBOutlet var findOnMapButton: UIButton!
+    @IBOutlet var questionStack: UIStackView!
     
     var location : CLLocation!
     
@@ -63,6 +64,21 @@ extension UIViewController{
     
     @objc func cancelTapped(){
         self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension LocationViewController{
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            questionStack.axis = .horizontal
+            questionStack.spacing = 10
+
+        } else {
+            questionStack.axis = .vertical
+            questionStack.spacing = 0
+        }
     }
 }
 
