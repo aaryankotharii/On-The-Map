@@ -56,7 +56,6 @@ class LinkViewController: UIViewController {
         }
         return false
     }
-    
 }
 
 //MARK:- WKNavigation Delegate Methods
@@ -74,15 +73,28 @@ extension LinkViewController: WKNavigationDelegate {
 }
 
 extension LinkViewController: UITextViewDelegate {
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         print("Ended editing")
         let width = webView.frame.width
-        webviewWidthAnchor.constant = width
+        if let text = textView.text{
+     if urlChecker(text){
+         webviewWidthAnchor.constant = width
+        let url = URL(string: text)
+        showWebsite(url!)
+     }else{
+         webviewWidthAnchor.constant = 0
+     }
         UIView.animate(withDuration: 0.1,
                                 delay: TimeInterval(0),
                                 options: .curveEaseIn,
                                 animations: { self.view.layoutIfNeeded() },
                                 completion: nil)
-             }
-    }`
+    }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+    }
+}
 

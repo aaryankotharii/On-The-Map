@@ -70,6 +70,11 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="0.32549019610000002" green="0.69019607839999997" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="e23-Wa-JLt" kind="popoverPresentation" popoverAnchorView="5Yb-an-xWV" id="0bJ-nq-Gtf">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -535,6 +540,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laY-Ab-RtQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-441" y="944"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9AI-lZ-xGG">
+            <objects>
+                <viewController id="e23-Wa-JLt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FqK-tY-T7w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-fE-4CQ">
+                                <rect key="frame" x="0.0" y="56" width="375" height="591"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOW-js-Zbk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <items>
+                                    <navigationItem title="Udacity SignUp" id="3VF-2G-UvH">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="Zi6-gF-2BT"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KN8-zA-YSB" firstAttribute="trailing" secondItem="3dC-fE-4CQ" secondAttribute="trailing" id="GvL-Vt-oEe"/>
+                            <constraint firstItem="3dC-fE-4CQ" firstAttribute="leading" secondItem="KN8-zA-YSB" secondAttribute="leading" id="OTe-TI-pr1"/>
+                            <constraint firstItem="ZOW-js-Zbk" firstAttribute="trailing" secondItem="KN8-zA-YSB" secondAttribute="trailing" id="OhO-oK-6iW"/>
+                            <constraint firstItem="ZOW-js-Zbk" firstAttribute="top" secondItem="KN8-zA-YSB" secondAttribute="top" id="S2f-ih-cod"/>
+                            <constraint firstItem="KN8-zA-YSB" firstAttribute="bottom" secondItem="3dC-fE-4CQ" secondAttribute="bottom" id="Y6T-Wu-KIG"/>
+                            <constraint firstItem="ZOW-js-Zbk" firstAttribute="leading" secondItem="KN8-zA-YSB" secondAttribute="leading" id="nTs-hn-Ikr"/>
+                            <constraint firstItem="3dC-fE-4CQ" firstAttribute="top" secondItem="ZOW-js-Zbk" secondAttribute="bottom" id="yN6-nH-3Nn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KN8-zA-YSB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gN-v0-bdY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1626.4000000000001" y="129.98500749625188"/>
         </scene>
     </scenes>
     <resources>
