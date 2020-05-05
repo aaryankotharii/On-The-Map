@@ -11,7 +11,11 @@ import UIKit
 class ListViewController: UIViewController {
     
     
-    var studentData = [StudentInformation]()
+    var studentData : [StudentInformation] {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.data.results
+    }
 
     @IBOutlet var studentDataTableView: UITableView!
     
@@ -25,7 +29,7 @@ class ListViewController: UIViewController {
     
     func handleStudentData(studentData:[StudentInformation], error:Error?){
         print(studentData)
-        self.studentData = studentData
+        //self.studentData = studentData
         DispatchQueue.main.async {   self.studentDataTableView.reloadData()  }
     }
 }

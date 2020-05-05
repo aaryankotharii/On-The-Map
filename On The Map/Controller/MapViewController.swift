@@ -14,10 +14,10 @@ class MapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
     
-    var studentData : StudentData! {
-        didSet{
-            SetupMap(studentData)
-        }
+    var studentData : StudentData {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.data
     }
     
     
@@ -28,9 +28,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         mapView.delegate = self
         super.viewDidLoad()
-        let tabbar = tabBarController as! TabBarController
-        self.studentData = tabbar.data
-        //UdacityClient.getStudentInformation(completion: handleStudentData(studentData:error:))
         SetupMap(studentData)
     }
     

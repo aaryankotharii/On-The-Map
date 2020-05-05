@@ -9,14 +9,14 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    
-    var data = StudentData()
+        
     
     var idk = "HELLLOOOOO"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Loaded")
+        UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
         // Do any additional setup after loading the view.
     }
     
@@ -41,7 +41,9 @@ class TabBarController: UITabBarController {
             print(error.localizedDescription)
             return
         } else {
-            self.data.results = data
+            let object = UIApplication.shared.delegate
+            let appDelegate = object as! AppDelegate
+            appDelegate.data.results = data
         }
     }
     
