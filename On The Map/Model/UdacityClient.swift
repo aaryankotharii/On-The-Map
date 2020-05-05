@@ -19,7 +19,7 @@ class UdacityClient {
         case newStudent
         case updateStudent(objectID : String)
         case logout
-        
+
         var stringValue : String{
             switch self {
             case .login:
@@ -39,6 +39,11 @@ class UdacityClient {
         var url : URL {
             return URL(string: self.stringValue)!
         }
+    }
+    
+    enum httpMethod: String {
+        case PUT
+        case POST
     }
     
     
@@ -76,11 +81,9 @@ class UdacityClient {
     }
     
     
-    
-    
-    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType,isLogin : Bool = false, completion: @escaping (ResponseType?, Error?) -> Void) {
+    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType,isLogin : Bool = false, httpMethod : httpMethod = .POST,completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = httpMethod.rawValue
         // request.httpBody = try! JSONEncoder().encode(body)
         //request.httpBody = (body as! Data)
         let postData = try! JSONEncoder().encode(body)
@@ -120,6 +123,7 @@ class UdacityClient {
         }
         task.resume()
     }
+
     
     
     
@@ -150,6 +154,19 @@ class UdacityClient {
     class func createNewStudentLocation(data: NewStudentRequest,completion: @escaping (Bool, Error?) -> Void){
         let body =  data
         taskForPOSTRequest(url: Endpoints.newStudent.url, responseType: NewStudentResponse.self, body: body) { response, error in
+            if let response = response {
+                print(response,"Response")
+                //NewStudentResponse = response
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        }
+    }
+    
+    class func updateStudentLocation(data:NewStudentRequest,completion: @escaping (Bool, Error?) -> Void){
+        let body = data
+        taskForPOSTRequest(url: Endpoints.newStudent.url,responseType: NewStudentResponse.self, body: body,httpMethod: .PUT) { response, error in
             if let response = response {
                 print(response,"Response")
                 //NewStudentResponse = response
