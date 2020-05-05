@@ -32,11 +32,6 @@ class LinkViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showWebsite(URL(string: "https://stackoverflow.com/questions/703754/how-to-dismiss-keyboard-for-uitextview-with-return-key")!)
-    }
-    
     @IBAction func submitClicked(_ sender: UIButton) {
         let student = NewStudentRequest(uniqueKey: "1234", firstName: "Aaryan", lastName: "Kothari", mapString: address, mediaURL: "facebook.com", latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude))
         UdacityClient.createNewStudentLocation(data: student, completion: handleCreateNewStudent(success:error:))
@@ -72,6 +67,8 @@ extension LinkViewController: WKNavigationDelegate {
     }
 }
 
+
+//MARK:- UITextView Delegate Methods
 extension LinkViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -93,6 +90,7 @@ extension LinkViewController: UITextViewDelegate {
     }
     }
     
+    //MARK: Empty TextView when start typing
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
     }
