@@ -73,14 +73,53 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbF-Wo-3kW">
+                                <rect key="frame" x="50" y="797.5" width="314" height="48.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fb" translatesAutoresizingMaskIntoConstraints="NO" id="dpS-VJ-Nbb">
+                                        <rect key="frame" x="30" y="8" width="32.5" height="32.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dpS-VJ-Nbb" secondAttribute="height" id="StY-Xd-d72"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue with Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmF-gE-PIB">
+                                        <rect key="frame" x="92.5" y="14" width="192.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wf-Ze-s7x">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="48.5"/>
+                                        <connections>
+                                            <action selector="fbLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dAV-7Q-APr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.3529411764705882" green="0.44268664720000001" blue="0.6779510379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7wf-Ze-s7x" secondAttribute="bottom" id="23s-oO-nn0"/>
+                                    <constraint firstAttribute="bottom" secondItem="dpS-VJ-Nbb" secondAttribute="bottom" constant="8" id="2Hm-DT-AJ3"/>
+                                    <constraint firstItem="7wf-Ze-s7x" firstAttribute="top" secondItem="hbF-Wo-3kW" secondAttribute="top" id="AnK-3R-S47"/>
+                                    <constraint firstItem="7wf-Ze-s7x" firstAttribute="leading" secondItem="hbF-Wo-3kW" secondAttribute="leading" id="ONM-XH-UGj"/>
+                                    <constraint firstItem="qmF-gE-PIB" firstAttribute="centerY" secondItem="hbF-Wo-3kW" secondAttribute="centerY" id="OXV-sE-DED"/>
+                                    <constraint firstAttribute="width" secondItem="hbF-Wo-3kW" secondAttribute="height" multiplier="6.5" id="Qua-7G-v5r"/>
+                                    <constraint firstAttribute="trailing" secondItem="7wf-Ze-s7x" secondAttribute="trailing" id="RP7-F9-zNO"/>
+                                    <constraint firstItem="dpS-VJ-Nbb" firstAttribute="top" secondItem="hbF-Wo-3kW" secondAttribute="top" constant="8" id="eeT-A2-0F7"/>
+                                    <constraint firstItem="qmF-gE-PIB" firstAttribute="leading" secondItem="dpS-VJ-Nbb" secondAttribute="trailing" constant="30" id="hqY-gJ-Hwx"/>
+                                    <constraint firstItem="dpS-VJ-Nbb" firstAttribute="leading" secondItem="hbF-Wo-3kW" secondAttribute="leading" constant="30" id="iAG-VI-SZX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="sDr-zN-T0m" firstAttribute="top" secondItem="ncd-Oi-W1n" secondAttribute="bottom" constant="30" id="1QA-Uq-Eha"/>
                             <constraint firstItem="VBU-03-V5I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="51e-sM-Gqu"/>
+                            <constraint firstAttribute="bottom" secondItem="hbF-Wo-3kW" secondAttribute="bottom" constant="50" id="6Y9-54-0s3"/>
                             <constraint firstItem="ncd-Oi-W1n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="40" id="SWe-Sf-oTK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ncd-Oi-W1n" secondAttribute="trailing" constant="50" id="YPX-nH-EJI"/>
                             <constraint firstItem="sDr-zN-T0m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZkT-Qk-QXU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hbF-Wo-3kW" secondAttribute="trailing" constant="50" id="fMq-tn-10e"/>
+                            <constraint firstItem="hbF-Wo-3kW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="rx4-DE-Oxh"/>
                             <constraint firstItem="ncd-Oi-W1n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="tkm-BA-li5"/>
                             <constraint firstItem="VBU-03-V5I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vtl-EH-st3"/>
                         </constraints>
@@ -92,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-874" y="130"/>
+            <point key="canvasLocation" x="-875.36231884057975" y="129.91071428571428"/>
         </scene>
         <!--Map-->
         <scene sceneID="tmv-fm-5Tf">
@@ -472,6 +511,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fb" width="46" height="47"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>

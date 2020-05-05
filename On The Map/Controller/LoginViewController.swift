@@ -38,18 +38,45 @@ class LoginViewController: UIViewController {
         UdacityClient.login(username: "z@k.com", password: "xoqrod-poxni8-xoQpug", completion: handleLogin(success:error:))
     }
     
+    @IBAction func fbLoginClicked(_ sender: UIButton) {
+        FacebookClient.fbLogin(vc: self, completion: handleFacebookLogin(success:error:))
+    }
+    
+    
     func handleLogin(success:Bool,error:Error?){
         if success{
-            UIDevice.validVibrate()
-            goToTabBar()
+            successLogin()
             print("Logged in")
-            UserDefaults.standard.setValue(true, forKey: "login")
-
         }else{
             if errorCheck() != nil { AuthAlert(errorCheck()!) ; return }
             AuthAlert(error?.localizedDescription ??  "Error")
         }
     }
+    
+    func handleFacebookLogin(success:Bool,error:Error?){
+        if success{
+            successLogin()
+             FacebookClient.getUserData(completion: handleFacebookData(success:data:error:))
+        }else{
+            AuthAlert(error?.localizedDescription ??  "Error")
+        }
+    }
+    
+    func successLogin(){
+        UIDevice.validVibrate()
+        goToTabBar()
+        UserDefaults.standard.setValue(true, forKey: "login")
+    }
+    
+    func handleFacebookData(success:Bool,data:fbData,error:Error?){
+        if success {
+            print(fbData)
+        }else{
+            print(error?.localizedDescription)
+        }
+    }
+    
+    
     
     func errorCheck() -> String? {
         let email = emailTextField.text!
