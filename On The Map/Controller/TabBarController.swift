@@ -9,6 +9,10 @@
 import UIKit
 
 class TabBarController: UITabBarController {
+    
+    var data = StudentData()
+    
+    var idk = "HELLLOOOOO"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +24,6 @@ class TabBarController: UITabBarController {
     @IBAction func logotuClicked(_ sender: Any) {
         UdacityClient.logout {
                     UserDefaults.standard.setValue(false, forKey: "login")
-
         }
     }
 
@@ -30,6 +33,16 @@ class TabBarController: UITabBarController {
     }
     @IBAction func refreshDataClicked(_ sender: Any) {
         print("Refresh")
+        UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
+    }
+    
+    func handleStudentInformation(data: [StudentInformation],error:Error?){
+        if let error = error{
+            print(error.localizedDescription)
+            return
+        } else {
+            self.data.results = data
+        }
     }
     
     func goToLocationVC(){

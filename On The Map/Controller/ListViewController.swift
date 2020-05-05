@@ -10,6 +10,7 @@ import UIKit
 
 class ListViewController: UIViewController {
     
+    
     var studentData = [StudentInformation]()
 
     @IBOutlet var studentDataTableView: UITableView!
@@ -18,7 +19,7 @@ class ListViewController: UIViewController {
        // studentDataTableView.delegate = self
         studentDataTableView.dataSource = self
         super.viewDidLoad()
-        UdacityClient.getStudentInformation(completion: handleStudentData(studentData:error:))
+
         // Do any additional setup after loading the view.
     }
     

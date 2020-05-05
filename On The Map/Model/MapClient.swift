@@ -61,5 +61,4 @@ class MapClient : NSObject, MKMapViewDelegate{
                mapView.addAnnotation(annotation)
         }
     }
-
 }
