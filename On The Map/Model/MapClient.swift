@@ -11,7 +11,6 @@ import MapKit
 
 class MapClient{
     
-    
     class func TextToLocation(_ address : String, completion: @escaping (CLLocation?, Error?) -> Void){
         let geoCoder = CLGeocoder()
         
@@ -26,4 +25,26 @@ class MapClient{
           completion(location,nil)
         }
     }
+    
+    class func setUpMap(_ location: CLLocation, mapView: MKMapView){
+        // Define a region for our map view
+        var mapRegion = MKCoordinateRegion()
+
+        let mapRegionSpan = 0.2
+        mapRegion.center = location.coordinate
+        mapRegion.span.latitudeDelta = mapRegionSpan
+        mapRegion.span.longitudeDelta = mapRegionSpan
+
+        mapView.setRegion(mapRegion, animated: true)
+
+        // Create a map annotation
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location.coordinate
+        annotation.title = "Apple Inc."
+        annotation.subtitle = "One Apple Park Way, Cupertino, California."
+
+        mapView.addAnnotation(annotation)
+    }
+    
+
 }

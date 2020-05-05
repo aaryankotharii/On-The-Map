@@ -7,26 +7,39 @@
 //
 
 import UIKit
+import MapKit
 
 class LocationViewController: UIViewController {
 
     @IBOutlet var locationTextView: UITextView!
-    
     @IBOutlet var findOnMapButton: UIButton!
+    
+    var location : CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: true);
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTapped))
+        setupNavBar()
     }
     
-    @objc func cancelTapped(){
-        self.navigationController?.popToRootViewController(animated: true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        hideKeyboardWhenTappedAround()
     }
     
 
+    
+
     @IBAction func findClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "tolinkvc", sender: locationTextView.text)
+        MapClient.TextToLocation(locationTextView.text, completion: handleTextToLocation(location:error:))
+    }
+    
+    func handleTextToLocation(location : CLLocation?, error: Error?){
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        self.location = location
+        performSegue(withIdentifier: "tolinkvc", sender: self)
     }
     
     // MARK: - Navigation
@@ -35,7 +48,21 @@ class LocationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "tolinkvc" {
                    let vc = segue.destination as! LinkViewController
-            vc.location = sender as? String
+            vc.address = locationTextView.text
+            vc.location = self.location
         }
     }
 }
+
+
+extension UIViewController{
+    func setupNavBar(){
+        self.navigationItem.setHidesBackButton(true, animated: true);
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTapped))
+    }
+    
+    @objc func cancelTapped(){
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+

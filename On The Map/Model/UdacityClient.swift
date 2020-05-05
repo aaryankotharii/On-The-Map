@@ -129,6 +129,7 @@ class UdacityClient {
         taskForPOSTRequest(url: Endpoints.login.url, responseType: Auth.self, body: body, isLogin: true) { response, error in
             if let response = response {
                 print(response)
+                completion(true,nil)
             } else {
                 completion(false, error)
             }
