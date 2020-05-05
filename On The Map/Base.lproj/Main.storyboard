@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A4P-d8-1uf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -541,10 +541,10 @@
             </objects>
             <point key="canvasLocation" x="-441" y="944"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="9AI-lZ-xGG">
             <objects>
-                <viewController id="e23-Wa-JLt" sceneMemberID="viewController">
+                <viewController id="e23-Wa-JLt" customClass="SignUpViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FqK-tY-T7w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -561,7 +561,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <items>
                                     <navigationItem title="Udacity SignUp" id="3VF-2G-UvH">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="Zi6-gF-2BT"/>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="Zi6-gF-2BT">
+                                            <connections>
+                                                <action selector="doneClicked:" destination="e23-Wa-JLt" id="9uN-OI-YTb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -578,6 +582,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KN8-zA-YSB"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="3dC-fE-4CQ" id="37m-c1-PvN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gN-v0-bdY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
