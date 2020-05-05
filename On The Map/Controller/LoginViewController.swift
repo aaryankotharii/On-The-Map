@@ -48,8 +48,7 @@ class LoginViewController: UIViewController {
             successLogin()
             print("Logged in")
         }else{
-            if errorCheck() != nil { AuthAlert(errorCheck()!) ; return }
-            AuthAlert(error?.localizedDescription ??  "Error")
+            if errorCheck() != nil { AuthAlert(errorCheck()!, success: false) ; return }
         }
     }
     
@@ -58,7 +57,7 @@ class LoginViewController: UIViewController {
             successLogin()
              FacebookClient.getUserData(completion: handleFacebookData(success:data:error:))
         }else{
-            AuthAlert(error?.localizedDescription ??  "Error")
+            AuthAlert(error?.localizedDescription ??  "Error", success: false)
         }
     }
     
