@@ -11,6 +11,7 @@ import SystemConfiguration
 
 
 extension UIViewController {
+    //MARK:- ALERT fucntion for error display
     internal func AuthAlert(_ message:String, completion: (() -> Void)? = nil){
         UIDevice.invalidVibrate()
         let title = "Uh Oh 🙁"
@@ -19,6 +20,7 @@ extension UIViewController {
         alert.addAction(action)
         self.present(alert, animated: true)
     }
+    
     
     //MARK: - ALERT function for network connection
     internal func networkErrorAlert(titlepass : String) {
@@ -35,6 +37,8 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
+    //MARK:- ALERT fucntion for success display
     internal func successLAert(_ message:String, completion: (() -> Void)? = nil){
         UIDevice.validVibrate()
         let title = "Yay 😄"
@@ -45,7 +49,5 @@ extension UIViewController {
         alert.addAction(action)
         self.present(alert, animated: true)
     }
-    
-    
 }
 

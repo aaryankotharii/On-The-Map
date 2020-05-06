@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import SafariServices
 
 class MapViewController: UIViewController {
     
@@ -100,20 +99,4 @@ extension MapViewController: MKMapViewDelegate{
         }
     }
 }
-
-extension UIViewController{
-
-func presentSafari(_ mediaUrl : String){
-    if let url = URL(string: mediaUrl) {
-        if url.isValid{ /// Check Valid URL
-            let vc = SFSafariViewController(url: url)
-            present(vc, animated: true) /// Present safariVC
-        }else{
-            AuthAlert("The User did not sumbit a valid URL. Try another one maybe?")
-        }
-    }
-}
-}
-
-
 //END
