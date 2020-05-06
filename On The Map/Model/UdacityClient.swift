@@ -176,7 +176,7 @@ class UdacityClient {
     }
     
     
-    class func logout(completion: @escaping () -> Void) {
+    class func logout(completion: @escaping (Bool, Error?) -> Void){
         
         var request = URLRequest(url: Endpoints.logout.url)
         request.httpMethod = "DELETE"
@@ -191,10 +191,13 @@ class UdacityClient {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil { // Handle error…
+                print(error?.localizedDescription,"LOGOUT ERROR")
+                completion(false,error)
                 return
             }
             let newData = data!.subdata(in: Range(uncheckedBounds: (5, data!.count)))
             print(String(data: newData, encoding: .utf8)!)
+            completion(true,nil)
         }
         task.resume()
     }

@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,22 +120,69 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="ncd-Oi-W1n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="0CV-Kh-lxc"/>
                             <constraint firstItem="sDr-zN-T0m" firstAttribute="top" secondItem="ncd-Oi-W1n" secondAttribute="bottom" constant="30" id="1QA-Uq-Eha"/>
-                            <constraint firstItem="VBU-03-V5I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="51e-sM-Gqu"/>
+                            <constraint firstItem="ncd-Oi-W1n" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.46" id="3zh-BP-all"/>
                             <constraint firstAttribute="bottom" secondItem="hbF-Wo-3kW" secondAttribute="bottom" constant="50" id="6Y9-54-0s3"/>
-                            <constraint firstItem="ncd-Oi-W1n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="40" id="SWe-Sf-oTK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ncd-Oi-W1n" secondAttribute="trailing" constant="50" id="YPX-nH-EJI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ncd-Oi-W1n" secondAttribute="trailing" constant="50" id="9Na-cH-LYI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ncd-Oi-W1n" secondAttribute="trailing" constant="30" id="BQW-qg-t4G"/>
+                            <constraint firstItem="VBU-03-V5I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Guh-HL-UcY"/>
+                            <constraint firstItem="VBU-03-V5I" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TgH-bj-Di5"/>
                             <constraint firstItem="sDr-zN-T0m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZkT-Qk-QXU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hbF-Wo-3kW" secondAttribute="trailing" constant="50" id="fMq-tn-10e"/>
+                            <constraint firstItem="ncd-Oi-W1n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="h3r-rZ-PP4"/>
+                            <constraint firstItem="VBU-03-V5I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="hNn-iF-WG3"/>
+                            <constraint firstItem="VBU-03-V5I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hvC-Kc-AZ2"/>
+                            <constraint firstItem="ncd-Oi-W1n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mZe-um-Ig2">
+                                <variation key="heightClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstItem="Ujh-ak-lU0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="qfR-UH-Ex8"/>
                             <constraint firstItem="hbF-Wo-3kW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="rx4-DE-Oxh"/>
-                            <constraint firstItem="ncd-Oi-W1n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="tkm-BA-li5"/>
-                            <constraint firstItem="VBU-03-V5I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vtl-EH-st3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ncd-Oi-W1n" secondAttribute="trailing" constant="5" id="tS2-4g-aax"/>
+                            <constraint firstItem="hbF-Wo-3kW" firstAttribute="width" secondItem="vVu-n8-WQg" secondAttribute="width" id="xJf-Qj-EtQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Na-cH-LYI"/>
+                                <exclude reference="BQW-qg-t4G"/>
+                                <exclude reference="tS2-4g-aax"/>
+                                <exclude reference="Guh-HL-UcY"/>
+                                <exclude reference="TgH-bj-Di5"/>
+                                <exclude reference="hNn-iF-WG3"/>
+                                <exclude reference="hvC-Kc-AZ2"/>
+                                <exclude reference="qfR-UH-Ex8"/>
+                                <exclude reference="0CV-Kh-lxc"/>
+                                <exclude reference="3zh-BP-all"/>
+                                <exclude reference="h3r-rZ-PP4"/>
+                                <exclude reference="mZe-um-Ig2"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="9Na-cH-LYI"/>
+                                <include reference="Guh-HL-UcY"/>
+                                <include reference="hvC-Kc-AZ2"/>
+                                <include reference="0CV-Kh-lxc"/>
+                                <include reference="mZe-um-Ig2"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="tS2-4g-aax"/>
+                                <include reference="TgH-bj-Di5"/>
+                                <include reference="hNn-iF-WG3"/>
+                                <include reference="3zh-BP-all"/>
+                                <include reference="h3r-rZ-PP4"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="BQW-qg-t4G"/>
+                                <include reference="qfR-UH-Ex8"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="stackYanchor" destination="SWe-Sf-oTK" id="QDi-T9-gAe"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -595,7 +642,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOW-js-Zbk">
-                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Udacity SignUp" id="3VF-2G-UvH">
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="Zi6-gF-2BT">

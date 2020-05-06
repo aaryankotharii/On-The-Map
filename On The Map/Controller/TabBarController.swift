@@ -22,9 +22,7 @@ class TabBarController: UITabBarController {
     
 
     @IBAction func logotuClicked(_ sender: Any) {
-        UdacityClient.logout {
-                    UserDefaults.standard.setValue(false, forKey: "login")
-        }
+        UdacityClient.logout(completion: handleLogout(success:error:))
     }
 
     @IBAction func postLocationClicked(_ sender: Any) {
@@ -48,10 +46,27 @@ class TabBarController: UITabBarController {
         }
     }
     
+    func handleLogout(success:Bool,error:Error?){
+        if success{
+            UserDefaults.standard.setValue(false, forKey: "login")
+            DispatchQueue.main.async {
+                self.goToLoginVC()
+            }
+        }else{
+            print(error?.localizedDescription)
+        }
+    }
+    
     func goToLocationVC(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(identifier: "LocationViewController") as LocationViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func goToLoginVC(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as LoginViewController
+        self.present(vc, animated: true)
+        
+    }
 }
