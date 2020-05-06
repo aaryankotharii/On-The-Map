@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
                 print("We're connected!")
             } else {
                 print("No connection.")
+                self.networkErrorAlert(titlepass: "Helllo")
             }
 
             print(path.isExpensive)
@@ -95,9 +96,9 @@ class LoginViewController: UIViewController {
     
     
     func errorCheck() -> String? {
-        let email = emailTextField.text!
-        let password = passwordTextField.text!
-        if email.trimmed.isEmpty ||  password.trimmed.isEmpty {
+        let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if email?.isEmpty ||  password?.isEmpty {
             return "Please Fill in all the fields"
         }
         if !email.isEmail {

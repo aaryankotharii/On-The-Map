@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Network
 
 class TabBarController: UITabBarController {
         
@@ -16,12 +17,13 @@ class TabBarController: UITabBarController {
         }
         return true
     }
+    
+    let monitor = NWPathMonitor()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Loaded")
         UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
-        // Do any additional setup after loading the view.
     }
     
 
