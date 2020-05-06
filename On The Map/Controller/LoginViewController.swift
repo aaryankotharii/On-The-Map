@@ -40,11 +40,7 @@ class LoginViewController: UIViewController {
     
     //MARK:- Button Action Methods
     @IBAction func loginClicked(_ sender: UIButton) {
-        if errorCheck() != nil {
-          AuthAlert(errorCheck()!)
-            return
-        }
-        UdacityClient.login(username: "z@k.com", password: "xoqrod-poxni8-xoQpug", completion: handleLogin(success:error:))
+        LoginUser()
     }
     
     @IBAction func fbLoginClicked(_ sender: UIButton) {
@@ -52,7 +48,11 @@ class LoginViewController: UIViewController {
     }
     
     func LoginUser(){
-        
+        if let error = errorCheck() { AuthAlert(error) ; return  }
+        // Move to login if no error
+        let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        UdacityClient.login(username: email!, password: password!, completion: handleLogin(success:error:))
     }
     
     
@@ -88,15 +88,18 @@ class LoginViewController: UIViewController {
     
     func handleFacebookData(success:Bool,data:fbData,error:Error?){
         if success {
-            print(data)
+            print(data,"This is the data retrived from the facebook account")
         }else{
-            print(error?.localizedDescription)
+            debugLog(message: "FB Data could not be retreived")
         }
     }
     
+    //MARK:- Func for successful login
     func successLogin(){
         UIDevice.validVibrate()
-        goToTabBar()
+        // GOTO Main screen of app
+        let vc = mainStoryboard.instantiateViewController(identifier: "nav") as! UINavigationController
+        self.present(vc, animated: true)
         UserDefaults.standard.setValue(true, forKey: "login")
     }
     
@@ -111,13 +114,10 @@ class LoginViewController: UIViewController {
         if !(email?.isEmail ?? true) {
             return "entered Email ID is invalid"
         }
+        if emailTextField.text == nil || passwordTextField.text == nil {
+            return "Please Fill in all the fields"
+        }
         return nil
-    }
-    
-    
-    func goToTabBar(){
-        let vc = mainStoryboard.instantiateViewController(identifier: "nav") as! UINavigationController
-        self.present(vc, animated: true)
     }
 }
 
