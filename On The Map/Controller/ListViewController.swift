@@ -41,10 +41,11 @@ class ListViewController: UIViewController {
 
 //MARK:- TableView DataSource Methods
 extension ListViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count       /// Number of cells
+    }
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = studentDataTableView.dequeueReusableCell(withIdentifier: "cell") as! StudentDataTableViewCell
@@ -63,10 +64,11 @@ extension ListViewController: UITableViewDataSource{
 //MARK:- TableView Delegate Methods
 extension ListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Unhighlight cell after return
-        tableView.deselectRow(at: indexPath, animated: true)
         
-        let mediaUrl = data[indexPath.row].mediaURL /// URL Given by user
-        presentSafari(mediaUrl)
+        tableView.deselectRow(at: indexPath, animated: true)         ///Unhighlight cell after return
+
+        let mediaUrl = data[indexPath.row].mediaURL                  /// URL Given by user
+        
+        presentSafari(mediaUrl)                                     /// Present Safari with URL
     }
 }
