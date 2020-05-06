@@ -6,8 +6,10 @@
 //  Copyright © 2020 Aaryan Kothari. All rights reserved.
 //
 
-import UIKit
 
+//MARK:- CONSTANTS
+/// TO BE USED BY ALL / ANY VIEWCONTROLLER
+import UIKit
 
 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
