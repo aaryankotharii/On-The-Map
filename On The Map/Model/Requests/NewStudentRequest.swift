@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Struct to send data for ne student location
 struct NewStudentRequest: Codable {
     let uniqueKey : String
     let firstName : String
