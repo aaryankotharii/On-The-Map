@@ -21,12 +21,12 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         AddObserver()   /// ADD OBSERVER
-        reloadData()    //// ADD PINS
+        //reloadData()    //// ADD PINS
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        reloadData()
+        perform(#selector(loadList), with: nil, afterDelay: 2.0)
     }
     
     func AddObserver(){
@@ -40,7 +40,7 @@ class MapViewController: UIViewController {
     }
     
     func SetupMap(_ data : [StudentInformation]){
-        
+        self.mapView.removeAnnotations(self.mapView.annotations)
         for student in data {
             
             let lat = CLLocationDegrees(student.latitude)

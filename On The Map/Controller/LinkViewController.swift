@@ -52,7 +52,6 @@ class LinkViewController: UIViewController {
     
     func handleCreateNewStudent(success:Bool,response:NewStudentResponse?,error:Error?){
         if success {
-            print("Success")
             let objectid = response?.objectId
             UserDefaults.standard.set(objectid, forKey: "objectId")
             //TODO Success Alert
@@ -64,11 +63,10 @@ class LinkViewController: UIViewController {
     
     func handleUpdateStudentLocation(success:Bool,error:Error?){
         if success{
-            print("Success")
             //TODO Success Alert
             self.navigationController?.popToRootViewController(animated: true)
         }else {
-            print(error?.localizedDescription)
+            AuthAlert(error!.localizedDescription, success: false)
         }
     }
     
@@ -87,9 +85,7 @@ class LinkViewController: UIViewController {
 //MARK:- WKNavigation Delegate Methods
 extension LinkViewController: WKNavigationDelegate {
     func showWebsite(_ url : URL){
-        
-        print("Success")
-                
+                        
         webView.navigationDelegate = self
                         
         webView.load(URLRequest(url: url))
@@ -103,7 +99,6 @@ extension LinkViewController: WKNavigationDelegate {
 extension LinkViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        print("Ended editing")
         let width = webView.frame.width
         if let text = textView.text{
      if urlChecker(text){

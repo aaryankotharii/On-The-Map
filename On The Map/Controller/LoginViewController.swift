@@ -40,12 +40,19 @@ class LoginViewController: UIViewController {
     
     //MARK:- Button Action Methods
     @IBAction func loginClicked(_ sender: UIButton) {
-        //TODO error check
+        if errorCheck() != nil {
+          AuthAlert(errorCheck()!, success: false)
+            return
+        }
         UdacityClient.login(username: "z@k.com", password: "xoqrod-poxni8-xoQpug", completion: handleLogin(success:error:))
     }
     
     @IBAction func fbLoginClicked(_ sender: UIButton) {
         FacebookClient.fbLogin(vc: self, completion: handleFacebookLogin(success:error:))
+    }
+    
+    func LoginUser(){
+        
     }
     
     
@@ -55,7 +62,16 @@ class LoginViewController: UIViewController {
             successLogin()
             debugLog(message: "Logged In Successfully")
         }else{
-            if error != nil { AuthAlert(error!.localizedDescription, success: false) ; return }
+            if error != nil {
+                switch error?.localizedDescription {
+                case "The Internet connection appears to be offline.":
+                    networkErrorAlert(titlepass: error!.localizedDescription)
+                default:
+                     AuthAlert(error!.localizedDescription + "blah ", success: false)
+                }
+                 return
+                
+            }
         }
     }
     

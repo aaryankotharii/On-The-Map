@@ -26,6 +26,7 @@ class LocationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        findOnMapButton.isEnabled = true
         hideKeyboardWhenTappedAround()
     }
     
@@ -33,13 +34,22 @@ class LocationViewController: UIViewController {
     
 
     @IBAction func findClicked(_ sender: UIButton) {
+        findOnMapButton.isEnabled = false
         MapClient.TextToLocation(locationTextView.text, completion: handleTextToLocation(location:error:))
     }
     
     func handleTextToLocation(location : CLLocation?, error: Error?){
         if let error = error {
-            print(error.localizedDescription,"handleTextToLocation")
-            //TODO
+            let status = error.localizedDescription
+            switch status {
+            case "The operation couldn’t be completed. (kCLErrorDomain error 8.)":
+                AuthAlert("Please Enter a Valid Location", success: false)
+            case "The operation couldn’t be completed. (kCLErrorDomain error 2.)":
+                networkErrorAlert(titlepass: "Internet required to locate given address")
+            default:
+                AuthAlert(status, success: false)
+            }
+            findOnMapButton.isEnabled = true
             return
         }
         self.location = location
@@ -73,7 +83,6 @@ extension LocationViewController{
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
             questionStack.axis = .horizontal
             questionStack.spacing = 10
 
