@@ -11,6 +11,8 @@ import UIKit
 
 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
+var FBLogin : Bool = false
+
 public func debugLog(message: String) {
     #if DEBUG
     debugPrint("=======================================")

@@ -67,10 +67,9 @@ class LoginViewController: UIViewController {
                 case "The Internet connection appears to be offline.":
                     networkErrorAlert(titlepass: error!.localizedDescription)
                 default:
-                     AuthAlert(error!.localizedDescription + "blah ", success: false)
+                     AuthAlert(error!.localizedDescription, success: false)
                 }
                  return
-                
             }
         }
     }
@@ -78,9 +77,12 @@ class LoginViewController: UIViewController {
     func handleFacebookLogin(success:Bool,error:Error?){
         if success{
             successLogin()
+            FBLogin = true
             FacebookClient.getUserData(completion: handleFacebookData(success:data:error:))
         }else{
-            AuthAlert(error?.localizedDescription ??  "Error", success: false)
+            if let error = error {
+                AuthAlert(error.localizedDescription ,success: false)
+            }
         }
     }
     
@@ -163,20 +165,3 @@ extension LoginViewController {
         }
     }
 }
-
-
-
-//    let monitor = NWPathMonitor()
-//monitor.pathUpdateHandler = { path in
-//         if path.status == .satisfied {
-//             print("We're connected!")
-//         } else {
-//             print("No connection.")
-//             self.networkErrorAlert(titlepass: "Helllo")
-//         }
-//
-//         print(path.isExpensive)
-//     }
-//
-//     let queue = DispatchQueue(label: "Monitor")
-//     monitor.start(queue: queue)

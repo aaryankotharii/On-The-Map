@@ -10,28 +10,26 @@ import UIKit
 import Network
 
 class TabBarController: UITabBarController {
-        
+    
     var postisExisting : Bool {
         if UserDefaults.standard.value(forKey: "objectId") == nil {
             return false
         }
         return true
     }
+
     
-    let monitor = NWPathMonitor()
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
     }
     
-
+    
     @IBAction func logotuClicked(_ sender: Any) {
-        UdacityClient.logout(completion: handleLogout(success:error:))
-        FacebookClient.logout()
+        FBLogin ?  handleFacebookLogout() : UdacityClient.logout(completion: handleLogout(success:error:))
+        
     }
-
+    
     @IBAction func postLocationClicked(_ sender: Any) {
         postisExisting ? overwriteAlert() : goToLocationVC()
     }
@@ -41,8 +39,14 @@ class TabBarController: UITabBarController {
     
     func handleStudentInformation(data: [StudentInformation],error:Error?){
         if let error = error{
-            print(error.localizedDescription)
+            switch error.localizedDescription {
+            case "The Internet connection appears to be offline.":
+                networkErrorAlert(titlepass: error.localizedDescription)
+            default:
+                AuthAlert(error.localizedDescription, success: false)
+            }
             return
+            
         } else {
             let object = UIApplication.shared.delegate
             let appDelegate = object as! AppDelegate
@@ -58,8 +62,16 @@ class TabBarController: UITabBarController {
                 self.goToLoginVC()
             }
         }else{
-            print(error?.localizedDescription)
+            AuthAlert(error!.localizedDescription, success: false)
         }
+    }
+    
+    func  handleFacebookLogout(){
+        FacebookClient.logout()
+        DispatchQueue.main.async {
+            self.goToLoginVC()
+        }
+        
     }
     
     func goToLocationVC(){
@@ -86,6 +98,6 @@ extension TabBarController {
     }
     
     func handleOverwriteClicked(action :  UIAlertAction){
-       goToLocationVC()
+        goToLocationVC()
     }
 }
