@@ -19,7 +19,7 @@ class UdacityClient {
         case newStudent
         case updateStudent(objectID : String)
         case logout
-
+        
         var stringValue : String{
             switch self {
             case .login:
@@ -121,7 +121,7 @@ class UdacityClient {
         }
         task.resume()
     }
-
+    
     
     
     
@@ -138,7 +138,7 @@ class UdacityClient {
         }
     }
     
-   class func getStudentInformation(completion: @escaping ([StudentInformation], Error?) -> Void) {
+    class func getStudentInformation(completion: @escaping ([StudentInformation], Error?) -> Void) {
         taskForGETRequest(url: Endpoints.StudentInformation.url, responseType: StudentData.self) { response, error in
             if let response = response {
                 completion(response.results, nil)

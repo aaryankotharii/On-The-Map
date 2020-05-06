@@ -11,40 +11,25 @@ import Network
 
 class LoginViewController: UIViewController {
     
+    //MARK: Outlets
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var stackYanchor: NSLayoutConstraint!     /// VStack Vertical Position Anchor wrt screen center
     
-    @IBOutlet var stackYanchor: NSLayoutConstraint!
-    
+    //MARK: Variables
     var keyboardUp : Bool = false
-    let monitor = NWPathMonitor()
 
     
+    //MARK:- View Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         UserDefaults.standard.set(nil, forKey: "objectId")
-        
-
-   monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                print("We're connected!")
-            } else {
-                print("No connection.")
-                self.networkErrorAlert(titlepass: "Helllo")
-            }
-
-            print(path.isExpensive)
-        }
-        
-        let queue = DispatchQueue(label: "Monitor")
-        monitor.start(queue: queue)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //INITIAL SETUP
-        subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()  /// ADD OBSERVERS
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,6 +38,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClicked(_ sender: UIButton) {
+        //TODO error check
         UdacityClient.login(username: "z@k.com", password: "xoqrod-poxni8-xoQpug", completion: handleLogin(success:error:))
     }
     
@@ -64,7 +50,7 @@ class LoginViewController: UIViewController {
     func handleLogin(success:Bool,error:Error?){
         if success{
             successLogin()
-            print("Logged in")
+            //TODO Logged in print
         }else{
             if errorCheck() != nil { AuthAlert(errorCheck()!, success: false) ; return }
         }
@@ -97,12 +83,12 @@ class LoginViewController: UIViewController {
     
     func errorCheck() -> String? {
         let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        if email?.isEmpty ||  password?.isEmpty {
+        if email == "" ||
+            passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
             return "Please Fill in all the fields"
         }
-        if !email.isEmail {
-            return "Enter a valid email ID"
+        if !(email?.isEmail ?? true) {
+            return "entered Email ID is invalid"
         }
         return nil
     }
@@ -160,3 +146,19 @@ extension LoginViewController {
     }
 }
 
+
+
+//    let monitor = NWPathMonitor()
+//monitor.pathUpdateHandler = { path in
+//         if path.status == .satisfied {
+//             print("We're connected!")
+//         } else {
+//             print("No connection.")
+//             self.networkErrorAlert(titlepass: "Helllo")
+//         }
+//
+//         print(path.isExpensive)
+//     }
+//
+//     let queue = DispatchQueue(label: "Monitor")
+//     monitor.start(queue: queue)

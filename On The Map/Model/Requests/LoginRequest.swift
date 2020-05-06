@@ -14,7 +14,6 @@ struct Udacity:Codable {
 
 // struct to store the login credentials for request
 struct User:Codable {
-    
     let username:String
     let password:String
 }

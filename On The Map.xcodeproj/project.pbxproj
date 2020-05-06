@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B0EC4A02462BB2E004B52C7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0EC49F2462BB2E004B52C7 /* Networking.swift */; };
+		5B0EC4A22462C5AF004B52C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0EC4A12462C5AE004B52C7 /* Constants.swift */; };
 		5B582EE3245D5D9600C8B875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582EE2245D5D9600C8B875 /* AppDelegate.swift */; };
 		5B582EE5245D5D9600C8B875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582EE4245D5D9600C8B875 /* SceneDelegate.swift */; };
 		5B582EEA245D5D9600C8B875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B582EE8245D5D9600C8B875 /* Main.storyboard */; };
@@ -24,7 +24,6 @@
 		5B582F0D245DD95000C8B875 /* keyboard+Hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */; };
 		5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F0E245DDF5C00C8B875 /* MapViewController.swift */; };
 		5B582F11245DDF6300C8B875 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582F10245DDF6300C8B875 /* ListViewController.swift */; };
-		5B5A79EE245E04C0003A99EA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79ED245E04C0003A99EA /* UserData.swift */; };
 		5B5A79F0245E0D22003A99EA /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79EF245E0D22003A99EA /* StudentLocation.swift */; };
 		5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */; };
 		5BD566562461A777008BDC65 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD566552461A777008BDC65 /* SignUpViewController.swift */; };
@@ -40,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B0EC49F2462BB2E004B52C7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		5B0EC4A12462C5AE004B52C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5B582EDF245D5D9600C8B875 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B582EE2245D5D9600C8B875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B582EE4245D5D9600C8B875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 		5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "keyboard+Hide.swift"; sourceTree = "<group>"; };
 		5B582F0E245DDF5C00C8B875 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5B582F10245DDF6300C8B875 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		5B5A79ED245E04C0003A99EA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		5B5A79EF245E0D22003A99EA /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		5B5A79F1245E746C003A99EA /* StudentDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDataTableViewCell.swift; sourceTree = "<group>"; };
 		5BD566552461A777008BDC65 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 				5B582EEB245D5D9800C8B875 /* Assets.xcassets */,
 				5B582EED245D5D9800C8B875 /* LaunchScreen.storyboard */,
 				5B582EF0245D5D9800C8B875 /* Info.plist */,
-				5B0EC49F2462BB2E004B52C7 /* Networking.swift */,
 			);
 			path = "On The Map";
 			sourceTree = "<group>";
@@ -189,7 +186,6 @@
 			children = (
 				5B582F01245D6D2D00C8B875 /* error-Response.swift */,
 				5B582F06245DCAFD00C8B875 /* LoginResponse.swift */,
-				5B5A79ED245E04C0003A99EA /* UserData.swift */,
 				5B5A79EF245E0D22003A99EA /* StudentLocation.swift */,
 				5BE59116245FF5C100F73DC3 /* NewStudentResponse.swift */,
 			);
@@ -204,6 +200,7 @@
 				5B582F0A245DD3D600C8B875 /* haptic+Feedback.swift */,
 				5B582F0C245DD95000C8B875 /* keyboard+Hide.swift */,
 				5BD566592461FE19008BDC65 /* Url+Extension.swift */,
+				5B0EC4A12462C5AE004B52C7 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -331,13 +328,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B0EC4A22462C5AF004B52C7 /* Constants.swift in Sources */,
 				5B5A79F0245E0D22003A99EA /* StudentLocation.swift in Sources */,
 				5B582F0D245DD95000C8B875 /* keyboard+Hide.swift in Sources */,
 				5B582F05245DC7F900C8B875 /* String+Extension.swift in Sources */,
-				5B0EC4A02462BB2E004B52C7 /* Networking.swift in Sources */,
 				5B582F02245D6D2D00C8B875 /* error-Response.swift in Sources */,
 				5BD566562461A777008BDC65 /* SignUpViewController.swift in Sources */,
-				5B5A79EE245E04C0003A99EA /* UserData.swift in Sources */,
 				5BE591192460618F00F73DC3 /* TabBarController.swift in Sources */,
 				5B582F07245DCAFD00C8B875 /* LoginResponse.swift in Sources */,
 				5B582EFC245D63F300C8B875 /* UdacityClient.swift in Sources */,
