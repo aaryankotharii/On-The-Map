@@ -93,3 +93,9 @@ extension LocationViewController{
     }
 }
 
+extension LocationViewController : UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+    }
+}
+
