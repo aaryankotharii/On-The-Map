@@ -42,6 +42,7 @@ class LocationViewController: UIViewController {
         MapClient.TextToLocation(locationTextView.text, completion: handleTextToLocation(location:error:))
     }
     
+    //MARK:- Text to location handler
     func handleTextToLocation(location : CLLocation?, error: Error?){
         if let error = error {
             let status = error.localizedDescription
@@ -65,7 +66,7 @@ class LocationViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "tolinkvc" {
-                   let vc = segue.destination as! LinkViewController
+            let vc = segue.destination as! LinkViewController
             vc.address = locationTextView.text
             vc.location = self.location
         }
@@ -74,7 +75,7 @@ class LocationViewController: UIViewController {
 
 
 
-
+//MARK:- Extenion to handle landscape UI
 extension LocationViewController{
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -89,11 +90,12 @@ extension LocationViewController{
     }
 }
 
+//MARK:- UITextViewDelegate Methods
 extension LocationViewController : UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.text = ""
+        textView.text = ""      /// empty textfield when start typing
     }
 }
 
 
-
+// END
