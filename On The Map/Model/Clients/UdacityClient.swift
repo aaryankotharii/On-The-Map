@@ -10,7 +10,7 @@ import Foundation
 
 class UdacityClient {
     
-    
+    //MARK:- ENDPOINT URLS
     enum Endpoints {
         
         case login
@@ -36,16 +36,20 @@ class UdacityClient {
                 return "https://onthemap-api.udacity.com/v1/session"
             }
         }
+        
         var url : URL {
             return URL(string: self.stringValue)!
         }
     }
     
+    
+    //Enum to decide request type
     enum httpMethod: String {
         case PUT
         case POST
     }
     
+    //MARK:- GET REQUEST
     class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
@@ -78,16 +82,14 @@ class UdacityClient {
         return task
     }
     
-    
+    //MARK:- POST || PUT REQUEST
     class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType,isLogin : Bool = false, httpMethod : httpMethod = .POST,completion: @escaping (ResponseType?, Error?) -> Void) {
+        
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
-        // request.httpBody = try! JSONEncoder().encode(body)
-        //request.httpBody = (body as! Data)
         let postData = try! JSONEncoder().encode(body)
+        
         request.httpBody = postData
-        
-        
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -122,13 +124,12 @@ class UdacityClient {
     }
     
     
-    
-    
+    //MARK:- Login Method
     class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let loginUser = User(username: username, password: password)
         let body = Udacity.init(udacity: loginUser)
         taskForPOSTRequest(url: Endpoints.login.url, responseType: Auth.self, body: body, isLogin: true) { response, error in
-            if let response = response {
+            if response != nil {
                 completion(true,nil)
             } else {
                 completion(false, error)
@@ -136,6 +137,7 @@ class UdacityClient {
         }
     }
     
+    //MARK:- GET STudent Locations function
     class func getStudentInformation(completion: @escaping ([StudentInformation], Error?) -> Void) {
         taskForGETRequest(url: Endpoints.StudentInformation.url, responseType: StudentData.self) { response, error in
             if let response = response {
@@ -146,10 +148,12 @@ class UdacityClient {
         }
     }
     
+    //MARK:- POST Student Location function
     class func createNewStudentLocation(data: NewStudentRequest,completion: @escaping (Bool,NewStudentResponse?, Error?) -> Void){
         let body =  data
         taskForPOSTRequest(url: Endpoints.newStudent.url, responseType: NewStudentResponse.self, body: body) { response, error in
             if let response = response {
+                debugLog(message: "STUDENT LOCATION CREATED")
                 completion(true,response ,nil)
             } else {
                 completion(false,nil,error)
@@ -157,13 +161,14 @@ class UdacityClient {
         }
     }
     
+    //MARK:- PUT Student Location function
+    /// Function name has post but its httpbody parameter decides request type
     class func updateStudentLocation(data:NewStudentRequest,completion: @escaping (Bool,Error?) -> Void){
         let body = data
         let objectId = UserDefaults.standard.value(forKey: "objectId") as! String
         taskForPOSTRequest(url: Endpoints.updateStudent(objectID: objectId).url,responseType: updtatedStudentResponse.self, body: body,httpMethod: .PUT) { response, error in
             if let response = response {
-                print(response,"Response")
-                //NewStudentResponse = response
+                debugLog(message: "STUDENT LOCATION UPDATED")
                 completion(true, nil)
             } else {
                 completion(false,error)
@@ -171,7 +176,7 @@ class UdacityClient {
         }
     }
     
-    
+    //MARK:- Logout function
     class func logout(completion: @escaping (Bool, Error?) -> Void){
         
         var request = URLRequest(url: Endpoints.logout.url)
@@ -186,12 +191,11 @@ class UdacityClient {
         }
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-            if error != nil { // Handle error…
-                print(error?.localizedDescription,"LOGOUT ERROR")
+            if error != nil {
                 completion(false,error)
                 return
             }
-            let newData = data!.subdata(in: Range(uncheckedBounds: (5, data!.count)))
+            debugLog(message: "LOGOUT SUCCESSFUL")
             completion(true,nil)
         }
         task.resume()
