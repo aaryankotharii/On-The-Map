@@ -8,6 +8,8 @@
 
 import Foundation
 
+//MARK:- RESPONSE OF SUCCESSFUL LOGIN SESSION
+
 struct Auth : Codable{
      var account : Account
      var session : Session

@@ -8,6 +8,7 @@
 
 import Foundation
 
+//MARK:- RESPONSE OF SUCCESSFUL STUDENT CREATION
 
 struct NewStudentResponse : Codable{
      var objectId : String

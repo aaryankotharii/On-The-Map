@@ -8,6 +8,9 @@
 
 import Foundation
 
+//MARK:- RESPONSE OF SUCCESSFUL Fetching of student data
+
+
 struct StudentInformation: Codable {
 
     let createdAt : String
