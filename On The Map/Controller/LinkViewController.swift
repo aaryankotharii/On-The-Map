@@ -40,8 +40,8 @@ class LinkViewController: UIViewController {
     func handleCreateNewStudent(success:Bool,response:NewStudentResponse?,error:Error?){
         if success {
             print("Success")
-            print(response?.createdAt)
-            print(response?.objectId)
+            let objectid = response?.objectId
+            UserDefaults.standard.set(objectid, forKey: "objectId")
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             print(error?.localizedDescription)

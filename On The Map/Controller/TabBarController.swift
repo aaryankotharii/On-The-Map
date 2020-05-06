@@ -10,8 +10,12 @@ import UIKit
 
 class TabBarController: UITabBarController {
         
-    
-    var idk = "HELLLOOOOO"
+    var postisExisting : Bool {
+        if UserDefaults.standard.value(forKey: "objectId") == nil {
+            return false
+        }
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +31,7 @@ class TabBarController: UITabBarController {
     }
 
     @IBAction func postLocationClicked(_ sender: Any) {
-        print("Post")
-        goToLocationVC()
+        postisExisting ? overwriteAlert() : goToLocationVC()
     }
     @IBAction func refreshDataClicked(_ sender: Any) {
         print("Refresh")
@@ -69,5 +72,20 @@ class TabBarController: UITabBarController {
         let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as LoginViewController
         self.present(vc, animated: true)
         
+    }
+}
+
+extension TabBarController {
+    func overwriteAlert(){
+        let alert = UIAlertController(title: nil, message: "You Have Already Posted a Student Location. Would You Like to Overwrite Your Current Location?", preferredStyle: .alert)
+        let overwriteAction = UIAlertAction(title: "Overwrite", style: .default, handler: handleOverwriteClicked(action:))
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(overwriteAction)
+        alert.addAction(cancelAction)
+    }
+    
+    func handleOverwriteClicked(action :  UIAlertAction){
+       goToLocationVC()
     }
 }

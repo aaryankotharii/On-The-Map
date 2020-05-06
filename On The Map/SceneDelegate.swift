@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     var loginstatus = UserDefaults.standard.bool(forKey: "login")
-    var userId = UserDefaults.standard.string(forKey: "userId")
+    var objectId = UserDefaults.standard.string(forKey: "objectId")
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        // debugLog(message: "Login status=\(loginstatus)")
