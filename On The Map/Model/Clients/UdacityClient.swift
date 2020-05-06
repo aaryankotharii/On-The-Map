@@ -163,7 +163,7 @@ class UdacityClient {
     class func updateStudentLocation(data:NewStudentRequest,completion: @escaping (Bool,Error?) -> Void){
         let body = data
         let objectId = UserDefaults.standard.value(forKey: "objectId") as! String
-        taskForPOSTRequest(url: Endpoints.updateStudent(objectID: objectId).url,responseType: NewStudentResponse.self, body: body,httpMethod: .PUT) { response, error in
+        taskForPOSTRequest(url: Endpoints.updateStudent(objectID: objectId).url,responseType: updtatedStudentResponse.self, body: body,httpMethod: .PUT) { response, error in
             if let response = response {
                 print(response,"Response")
                 //NewStudentResponse = response

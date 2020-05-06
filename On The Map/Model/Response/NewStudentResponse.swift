@@ -13,3 +13,7 @@ struct NewStudentResponse : Codable{
      var objectId : String
      var createdAt : String
 }
+
+struct updtatedStudentResponse : Codable {
+    var updatedAt : String
+}

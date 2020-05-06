@@ -29,6 +29,8 @@ class MapViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    data = (UIApplication.shared.delegate as! AppDelegate).data.results
+    SetupMap(data)
     }
     
     @objc func loadList(){
@@ -54,11 +56,11 @@ class MapViewController: UIViewController {
                     annotation.coordinate = coordinate
                     annotation.title = "\(first) \(last)"
                     annotation.subtitle = mediaURL
-    
+            
                     // Finally we place the annotation in an array of annotations.
-                    annotations.append(annotation)
+                self.mapView.addAnnotation(annotation)
                 }
-             self.mapView.addAnnotations(annotations)
+            // self.mapView.addAnnotations(annotations)
         }
 }
 

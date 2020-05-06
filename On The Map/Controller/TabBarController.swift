@@ -83,6 +83,7 @@ extension TabBarController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(overwriteAction)
         alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
     
     func handleOverwriteClicked(action :  UIAlertAction){

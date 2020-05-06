@@ -20,6 +20,8 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        self.navigationItem.setHidesBackButton(true, animated: true);
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,7 +38,8 @@ class LocationViewController: UIViewController {
     
     func handleTextToLocation(location : CLLocation?, error: Error?){
         if let error = error {
-            print(error.localizedDescription)
+            print(error.localizedDescription,"handleTextToLocation")
+            //TODO
             return
         }
         self.location = location
@@ -58,7 +61,6 @@ class LocationViewController: UIViewController {
 
 extension UIViewController{
     func setupNavBar(){
-        self.navigationItem.setHidesBackButton(true, animated: true);
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTapped))
     }
     

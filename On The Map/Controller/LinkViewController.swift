@@ -24,6 +24,14 @@ class LinkViewController: UIViewController {
     var location : CLLocation!
     var address : String!
     
+    var postisExisting : Bool {
+        if UserDefaults.standard.value(forKey: "objectId") == nil {
+            return false
+        }
+        return true
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
@@ -34,19 +42,37 @@ class LinkViewController: UIViewController {
     
     @IBAction func submitClicked(_ sender: UIButton) {
         let student = NewStudentRequest(uniqueKey: "1234", firstName: "Aaryan", lastName: "Kothari", mapString: address, mediaURL: "facebook.com", latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude))
-        UdacityClient.createNewStudentLocation(data: student, completion: handleCreateNewStudent(success:response:error:))
+        if postisExisting{
+            UdacityClient.updateStudentLocation(data: student, completion: handleUpdateStudentLocation)
+        }else {
+            UdacityClient.createNewStudentLocation(data: student, completion: handleCreateNewStudent(success:response:error:))
+        }
     }
+
     
     func handleCreateNewStudent(success:Bool,response:NewStudentResponse?,error:Error?){
         if success {
             print("Success")
             let objectid = response?.objectId
             UserDefaults.standard.set(objectid, forKey: "objectId")
+            //TODO Success Alert
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             print(error?.localizedDescription)
         }
     }
+    
+    func handleUpdateStudentLocation(success:Bool,error:Error?){
+        if success{
+            print("Success")
+            //TODO Success Alert
+            self.navigationController?.popToRootViewController(animated: true)
+        }else {
+            print(error?.localizedDescription)
+        }
+    }
+    
+
     
     //TODO
     //MARK: Check for Valid URL
@@ -100,4 +126,5 @@ extension LinkViewController: UITextViewDelegate {
         textView.text = ""
     }
 }
+
 
