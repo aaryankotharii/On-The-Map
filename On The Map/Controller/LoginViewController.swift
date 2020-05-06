@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Network
 
 class LoginViewController: UIViewController {
     
@@ -16,11 +17,27 @@ class LoginViewController: UIViewController {
     @IBOutlet var stackYanchor: NSLayoutConstraint!
     
     var keyboardUp : Bool = false
+    let monitor = NWPathMonitor()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         UserDefaults.standard.set(nil, forKey: "objectId")
+        
+
+   monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                print("We're connected!")
+            } else {
+                print("No connection.")
+            }
+
+            print(path.isExpensive)
+        }
+        
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
     }
     
     override func viewWillAppear(_ animated: Bool) {

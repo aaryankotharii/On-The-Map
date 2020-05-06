@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SystemConfiguration
+
 
 extension UIViewController {
     internal func AuthAlert(_ message:String, success : Bool, completion: (() -> Void)? = nil){
@@ -32,4 +34,7 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+
 }
+
