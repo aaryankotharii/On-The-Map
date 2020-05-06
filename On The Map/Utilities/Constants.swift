@@ -9,7 +9,7 @@
 import UIKit
 
 
-let storyboard = UIStoryboard(name: "Main", bundle: nil)
+let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
 public func debugLog(message: String) {
     #if DEBUG

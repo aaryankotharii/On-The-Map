@@ -16,9 +16,10 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var stackYanchor: NSLayoutConstraint!     /// VStack Vertical Position Anchor wrt screen center
     
+    
     //MARK: Variables
     var keyboardUp : Bool = false
-
+    
     
     //MARK:- View Lifecycle Methods
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class LoginViewController: UIViewController {
         unsubscribeFromKeyboardNotifications() /// REMOVE OBSERVERS
     }
     
+    //MARK:- Button Action Methods
     @IBAction func loginClicked(_ sender: UIButton) {
         //TODO error check
         UdacityClient.login(username: "z@k.com", password: "xoqrod-poxni8-xoQpug", completion: handleLogin(success:error:))
@@ -47,28 +49,23 @@ class LoginViewController: UIViewController {
     }
     
     
+    //MARK:- Completion handler methods
     func handleLogin(success:Bool,error:Error?){
         if success{
             successLogin()
-            //TODO Logged in print
+            debugLog(message: "Logged In Successfully")
         }else{
-            if errorCheck() != nil { AuthAlert(errorCheck()!, success: false) ; return }
+            if error != nil { AuthAlert(error!.localizedDescription, success: false) ; return }
         }
     }
     
     func handleFacebookLogin(success:Bool,error:Error?){
         if success{
             successLogin()
-             FacebookClient.getUserData(completion: handleFacebookData(success:data:error:))
+            FacebookClient.getUserData(completion: handleFacebookData(success:data:error:))
         }else{
             AuthAlert(error?.localizedDescription ??  "Error", success: false)
         }
-    }
-    
-    func successLogin(){
-        UIDevice.validVibrate()
-        goToTabBar()
-        UserDefaults.standard.setValue(true, forKey: "login")
     }
     
     func handleFacebookData(success:Bool,data:fbData,error:Error?){
@@ -79,8 +76,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func successLogin(){
+        UIDevice.validVibrate()
+        goToTabBar()
+        UserDefaults.standard.setValue(true, forKey: "login")
+    }
     
     
+    //MARK:- Error Checking Function
     func errorCheck() -> String? {
         let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         if email == "" ||
@@ -95,8 +98,7 @@ class LoginViewController: UIViewController {
     
     
     func goToTabBar(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "nav") as! UINavigationController
+        let vc = mainStoryboard.instantiateViewController(identifier: "nav") as! UINavigationController
         self.present(vc, animated: true)
     }
 }

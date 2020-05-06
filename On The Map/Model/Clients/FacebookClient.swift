@@ -19,13 +19,13 @@ class FacebookClient {
         loginManager.logIn(permissions: [.publicProfile,.email], viewController: vc) { (loginResult) in
             switch loginResult{
             case .cancelled:
-                print("User cancelled login process.")
+                debugLog(message: "User cancelled login process.")
                 completion(false, nil)
             case .failed(let error):
-                print(error.localizedDescription)
+                debugLog(message: error.localizedDescription)
                 completion(false, error)
             case .success( _, _, _):
-                print("Logged In")
+                debugLog(message: "FB Login Successful")
                 completion(true, nil)
             }
         }

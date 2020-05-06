@@ -85,7 +85,6 @@ class UdacityClient {
         // request.httpBody = try! JSONEncoder().encode(body)
         //request.httpBody = (body as! Data)
         let postData = try! JSONEncoder().encode(body)
-        print(postData)
         request.httpBody = postData
         
         
@@ -130,7 +129,6 @@ class UdacityClient {
         let body = Udacity.init(udacity: loginUser)
         taskForPOSTRequest(url: Endpoints.login.url, responseType: Auth.self, body: body, isLogin: true) { response, error in
             if let response = response {
-                print(response)
                 completion(true,nil)
             } else {
                 completion(false, error)
@@ -152,7 +150,6 @@ class UdacityClient {
         let body =  data
         taskForPOSTRequest(url: Endpoints.newStudent.url, responseType: NewStudentResponse.self, body: body) { response, error in
             if let response = response {
-                print(response,"Response")
                 completion(true,response ,nil)
             } else {
                 completion(false,nil,error)
@@ -195,7 +192,6 @@ class UdacityClient {
                 return
             }
             let newData = data!.subdata(in: Range(uncheckedBounds: (5, data!.count)))
-            print(String(data: newData, encoding: .utf8)!)
             completion(true,nil)
         }
         task.resume()

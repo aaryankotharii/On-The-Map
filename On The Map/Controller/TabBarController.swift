@@ -36,7 +36,6 @@ class TabBarController: UITabBarController {
         postisExisting ? overwriteAlert() : goToLocationVC()
     }
     @IBAction func refreshDataClicked(_ sender: Any) {
-        print("Refresh")
         UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
     }
     
@@ -64,14 +63,12 @@ class TabBarController: UITabBarController {
     }
     
     func goToLocationVC(){
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(identifier: "LocationViewController") as LocationViewController
+        let vc = mainStoryboard.instantiateViewController(identifier: "LocationViewController") as LocationViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func goToLoginVC(){
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(identifier: "LoginVC") as LoginViewController
+        let vc = mainStoryboard.instantiateViewController(identifier: "LoginVC") as LoginViewController
         self.present(vc, animated: true)
         
     }
