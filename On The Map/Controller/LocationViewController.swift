@@ -47,11 +47,11 @@ class LocationViewController: UIViewController {
             let status = error.localizedDescription
             switch status {
             case "The operation couldn’t be completed. (kCLErrorDomain error 8.)":
-                AuthAlert("Please Enter a Valid Location", success: false)
+                AuthAlert("Please Enter a Valid Location")
             case "The operation couldn’t be completed. (kCLErrorDomain error 2.)":
                 networkErrorAlert(titlepass: "Internet required to locate given address")
             default:
-                AuthAlert(status, success: false)
+                AuthAlert(status)
             }
             findOnMapButton.isEnabled = true
             return

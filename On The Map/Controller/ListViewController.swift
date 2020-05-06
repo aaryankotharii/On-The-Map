@@ -68,13 +68,6 @@ extension ListViewController: UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
         
         let mediaUrl = data[indexPath.row].mediaURL /// URL Given by user
-        if let url = URL(string: mediaUrl) {
-            if url.isValid{
-                let vc = SFSafariViewController(url: url)
-                present(vc, animated: true) /// Present safariVC
-            }else{
-                AuthAlert("The User did not sumbit a valid URL. Try another one maybe?", success: false)
-            }
-        }
+        presentSafari(mediaUrl)
     }
 }

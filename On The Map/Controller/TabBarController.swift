@@ -43,7 +43,7 @@ class TabBarController: UITabBarController {
             case "The Internet connection appears to be offline.":
                 networkErrorAlert(titlepass: error.localizedDescription)
             default:
-                AuthAlert(error.localizedDescription, success: false)
+                AuthAlert(error.localizedDescription)
             }
             return
             
@@ -62,7 +62,7 @@ class TabBarController: UITabBarController {
                 self.goToLoginVC()
             }
         }else{
-            AuthAlert(error!.localizedDescription, success: false)
+            AuthAlert(error!.localizedDescription)
         }
     }
     

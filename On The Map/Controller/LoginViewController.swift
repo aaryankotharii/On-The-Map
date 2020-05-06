@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
     //MARK:- Button Action Methods
     @IBAction func loginClicked(_ sender: UIButton) {
         if errorCheck() != nil {
-          AuthAlert(errorCheck()!, success: false)
+          AuthAlert(errorCheck()!)
             return
         }
         UdacityClient.login(username: "z@k.com", password: "xoqrod-poxni8-xoQpug", completion: handleLogin(success:error:))
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
                 case "The Internet connection appears to be offline.":
                     networkErrorAlert(titlepass: error!.localizedDescription)
                 default:
-                     AuthAlert(error!.localizedDescription, success: false)
+                     AuthAlert(error!.localizedDescription)
                 }
                  return
             }
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
             FacebookClient.getUserData(completion: handleFacebookData(success:data:error:))
         }else{
             if let error = error {
-                AuthAlert(error.localizedDescription ,success: false)
+                AuthAlert(error.localizedDescription)
             }
         }
     }

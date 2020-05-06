@@ -96,16 +96,23 @@ extension MapViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             let mediaUrl = ((view.annotation?.subtitle) ?? "") ?? ""
-            if let url = URL(string: mediaUrl) {
-                if url.isValid{ /// Check Valid URL
-                    let vc = SFSafariViewController(url: url)
-                    present(vc, animated: true) /// Present safariVC
-                }else{
-                    AuthAlert("The User did not sumbit a valid URL. Try another one maybe?", success: false)
-                }
-            }
+            presentSafari(mediaUrl)
         }
     }
+}
+
+extension UIViewController{
+
+func presentSafari(_ mediaUrl : String){
+    if let url = URL(string: mediaUrl) {
+        if url.isValid{ /// Check Valid URL
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true) /// Present safariVC
+        }else{
+            AuthAlert("The User did not sumbit a valid URL. Try another one maybe?")
+        }
+    }
+}
 }
 
 

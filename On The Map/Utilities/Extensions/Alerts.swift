@@ -11,9 +11,9 @@ import SystemConfiguration
 
 
 extension UIViewController {
-    internal func AuthAlert(_ message:String, success : Bool, completion: (() -> Void)? = nil){
-        success ? UIDevice.validVibrate() : UIDevice.invalidVibrate()
-        let title = success ? "Yay 😄" : "Uh Oh 🙁"
+    internal func AuthAlert(_ message:String, completion: (() -> Void)? = nil){
+        UIDevice.invalidVibrate()
+        let title = "Uh Oh 🙁"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default)
         alert.addAction(action)
@@ -35,6 +35,17 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-
+    internal func successLAert(_ message:String, completion: (() -> Void)? = nil){
+        UIDevice.validVibrate()
+        let title = "Yay 😄"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true)
+    }
+    
+    
 }
 

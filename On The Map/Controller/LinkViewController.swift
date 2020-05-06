@@ -37,7 +37,7 @@ class LinkViewController: UIViewController {
         setupCancelButton()
         MapClient.setUpMap(location, mapView: mapView)
         hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
+        linkTextView.centerVerticalText()
     }
     
     @IBAction func submitClicked(_ sender: UIButton) {
@@ -54,10 +54,10 @@ class LinkViewController: UIViewController {
         if success {
             let objectid = response?.objectId
             UserDefaults.standard.set(objectid, forKey: "objectId")
-            //TODO Success Alert
+            successLAert("Your student Location successfully created")
             self.navigationController?.popToRootViewController(animated: true)
         } else {
-            print(error?.localizedDescription)
+            AuthAlert(error!.localizedDescription)
         }
     }
     
@@ -66,7 +66,7 @@ class LinkViewController: UIViewController {
             //TODO Success Alert
             self.navigationController?.popToRootViewController(animated: true)
         }else {
-            AuthAlert(error!.localizedDescription, success: false)
+            AuthAlert(error!.localizedDescription)
         }
     }
     
