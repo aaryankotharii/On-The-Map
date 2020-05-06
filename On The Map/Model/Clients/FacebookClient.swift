@@ -56,7 +56,7 @@ class FacebookClient {
         let loginManager = LoginManager()
         loginManager.logOut()
     }
-    }
+}
 
 struct fbData{
     var name : String = ""
