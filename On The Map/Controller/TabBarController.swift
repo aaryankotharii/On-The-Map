@@ -23,6 +23,7 @@ class TabBarController: UITabBarController {
 
     @IBAction func logotuClicked(_ sender: Any) {
         UdacityClient.logout(completion: handleLogout(success:error:))
+        FacebookClient.logout()
     }
 
     @IBAction func postLocationClicked(_ sender: Any) {

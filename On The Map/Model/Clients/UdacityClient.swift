@@ -141,7 +141,6 @@ class UdacityClient {
    class func getStudentInformation(completion: @escaping ([StudentInformation], Error?) -> Void) {
         taskForGETRequest(url: Endpoints.StudentInformation.url, responseType: StudentData.self) { response, error in
             if let response = response {
-                print(response)
                 completion(response.results, nil)
             } else {
                 completion([], error)
@@ -149,20 +148,19 @@ class UdacityClient {
         }
     }
     
-    class func createNewStudentLocation(data: NewStudentRequest,completion: @escaping (Bool, Error?) -> Void){
+    class func createNewStudentLocation(data: NewStudentRequest,completion: @escaping (Bool,NewStudentResponse?, Error?) -> Void){
         let body =  data
         taskForPOSTRequest(url: Endpoints.newStudent.url, responseType: NewStudentResponse.self, body: body) { response, error in
             if let response = response {
                 print(response,"Response")
-                //NewStudentResponse = response
-                completion(true, nil)
+                completion(true,response ,nil)
             } else {
-                completion(false, error)
+                completion(false,nil,error)
             }
         }
     }
     
-    class func updateStudentLocation(data:NewStudentRequest,completion: @escaping (Bool, Error?) -> Void){
+    class func updateStudentLocation(data:NewStudentRequest,completion: @escaping (Bool,Error?) -> Void){
         let body = data
         taskForPOSTRequest(url: Endpoints.newStudent.url,responseType: NewStudentResponse.self, body: body,httpMethod: .PUT) { response, error in
             if let response = response {
@@ -170,7 +168,7 @@ class UdacityClient {
                 //NewStudentResponse = response
                 completion(true, nil)
             } else {
-                completion(false, error)
+                completion(false,error)
             }
         }
     }

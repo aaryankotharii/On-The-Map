@@ -51,6 +51,11 @@ class FacebookClient {
                   })
               }
           }
+    
+    class func logout(){
+        let loginManager = LoginManager()
+        loginManager.logOut()
+    }
     }
 
 struct fbData{

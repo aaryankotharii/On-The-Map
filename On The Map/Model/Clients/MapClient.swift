@@ -20,45 +20,45 @@ class MapClient : NSObject, MKMapViewDelegate{
             guard
                 let placemarks = placemarks,
                 let location = placemarks.first?.location
-            else {
-                completion(nil,error)
-                return
+                else {
+                    completion(nil,error)
+                    return
             }
-          completion(location,nil)
+            completion(location,nil)
         }
     }
     
     class func locationToText(_ location: CLLocation,completion: @escaping (CLPlacemark)-> Void){
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
-        if let _ = error {  return }
-        guard let placemark = placemarks?.first else { return }
-        completion(placemark)
+            if let _ = error {  return }
+            guard let placemark = placemarks?.first else { return }
+            completion(placemark)
         }
     }
     
     class func setUpMap(_ location: CLLocation, mapView: MKMapView){
         // Define a region for our map view
         var mapRegion = MKCoordinateRegion()
-
+        
         let mapRegionSpan = 0.3
         mapRegion.center = location.coordinate
         mapRegion.span.latitudeDelta = mapRegionSpan
         mapRegion.span.longitudeDelta = mapRegionSpan
-
+        
         mapView.setRegion(mapRegion, animated: true)
         
         locationToText(location) { (placemark) in
-                 let streetName = placemark.thoroughfare ?? ""
-               let cityState  = "\(placemark.locality ?? ""),\(placemark.administrativeArea ?? "")"
-
-               // Create a map annotation
-               let annotation = MKPointAnnotation()
-               annotation.coordinate = location.coordinate
-               annotation.title = cityState
-               annotation.subtitle = "\(streetName), \(cityState)"
-
-               mapView.addAnnotation(annotation)
+            let streetName = placemark.thoroughfare ?? ""
+            let cityState  = "\(placemark.locality ?? ""),\(placemark.administrativeArea ?? "")"
+            
+            // Create a map annotation
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location.coordinate
+            annotation.title = cityState
+            annotation.subtitle = "\(streetName), \(cityState)"
+            
+            mapView.addAnnotation(annotation)
         }
     }
 }

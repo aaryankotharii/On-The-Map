@@ -34,12 +34,15 @@ class LinkViewController: UIViewController {
     
     @IBAction func submitClicked(_ sender: UIButton) {
         let student = NewStudentRequest(uniqueKey: "1234", firstName: "Aaryan", lastName: "Kothari", mapString: address, mediaURL: "facebook.com", latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude))
-        UdacityClient.createNewStudentLocation(data: student, completion: handleCreateNewStudent(success:error:))
+        UdacityClient.createNewStudentLocation(data: student, completion: handleCreateNewStudent(success:response:error:))
     }
     
-    func handleCreateNewStudent(success:Bool,error:Error?){
+    func handleCreateNewStudent(success:Bool,response:NewStudentResponse?,error:Error?){
         if success {
             print("Success")
+            print(response?.createdAt)
+            print(response?.objectId)
+            self.navigationController?.popToRootViewController(animated: true)
         } else {
             print(error?.localizedDescription)
         }

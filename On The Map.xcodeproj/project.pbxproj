@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5B582EE3245D5D9600C8B875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582EE2245D5D9600C8B875 /* AppDelegate.swift */; };
 		5B582EE5245D5D9600C8B875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582EE4245D5D9600C8B875 /* SceneDelegate.swift */; };
-		5B582EE7245D5D9600C8B875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B582EE6245D5D9600C8B875 /* ViewController.swift */; };
 		5B582EEA245D5D9600C8B875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B582EE8245D5D9600C8B875 /* Main.storyboard */; };
 		5B582EEC245D5D9800C8B875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B582EEB245D5D9800C8B875 /* Assets.xcassets */; };
 		5B582EEF245D5D9800C8B875 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B582EED245D5D9800C8B875 /* LaunchScreen.storyboard */; };
@@ -43,7 +42,6 @@
 		5B582EDF245D5D9600C8B875 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B582EE2245D5D9600C8B875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B582EE4245D5D9600C8B875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5B582EE6245D5D9600C8B875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B582EE9245D5D9600C8B875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B582EEB245D5D9800C8B875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B582EEE245D5D9800C8B875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,6 +95,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5B016DD224626C3A00BB6EDB /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				5B582EFB245D63F300C8B875 /* UdacityClient.swift */,
+				5BE591222460A67300F73DC3 /* FacebookClient.swift */,
+				5BEC28F72461424500F491BF /* MapClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
 		5B582ED6245D5D9600C8B875 = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +132,6 @@
 				5B582EF8245D636B00C8B875 /* Controller */,
 				5B582EE2245D5D9600C8B875 /* AppDelegate.swift */,
 				5B582EE4245D5D9600C8B875 /* SceneDelegate.swift */,
-				5B582EE6245D5D9600C8B875 /* ViewController.swift */,
 				5B582EE8245D5D9600C8B875 /* Main.storyboard */,
 				5B582EEB245D5D9800C8B875 /* Assets.xcassets */,
 				5B582EED245D5D9800C8B875 /* LaunchScreen.storyboard */,
@@ -138,9 +145,7 @@
 			children = (
 				5B582F00245D6D0300C8B875 /* Response */,
 				5B582EFF245D646F00C8B875 /* Requests */,
-				5B582EFB245D63F300C8B875 /* UdacityClient.swift */,
-				5BE591222460A67300F73DC3 /* FacebookClient.swift */,
-				5BEC28F72461424500F491BF /* MapClient.swift */,
+				5B016DD224626C3A00BB6EDB /* Clients */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,7 +344,6 @@
 				5B582F0F245DDF5C00C8B875 /* MapViewController.swift in Sources */,
 				5B582EFA245D639200C8B875 /* LoginViewController.swift in Sources */,
 				5BE59113245FE52E00F73DC3 /* LinkViewController.swift in Sources */,
-				5B582EE7245D5D9600C8B875 /* ViewController.swift in Sources */,
 				5BE591232460A67300F73DC3 /* FacebookClient.swift in Sources */,
 				5B5A79F2245E746C003A99EA /* StudentDataTableViewCell.swift in Sources */,
 				5BE59117245FF5C100F73DC3 /* NewStudentResponse.swift in Sources */,

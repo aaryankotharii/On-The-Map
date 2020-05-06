@@ -14,30 +14,31 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     
-     let object = UIApplication.shared.delegate as! AppDelegate
-    
-
-    
-    
-    var annotations = [MKPointAnnotation]()
+     //MARK:- StudentLocation Data
+     var data = (UIApplication.shared.delegate as! AppDelegate).data.results
+     var annotations = [MKPointAnnotation]()
 
     
     
     override func viewDidLoad() {
         mapView.delegate = self
         super.viewDidLoad()
-      //  SetupMap(object.data)
+                NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+            SetupMap(data)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        SetupMap(object.data)
     }
     
-    func SetupMap(_ data : StudentData){
+    @objc func loadList(){
+        data = (UIApplication.shared.delegate as! AppDelegate).data.results
+        SetupMap(data)
+    }
     
-        let studentDataArray = data.results
-         for student in studentDataArray {
+    func SetupMap(_ data : [StudentInformation]){
+    
+         for student in data {
     
                  let lat = CLLocationDegrees(student.latitude)
                  let long = CLLocationDegrees(student.longitude)
