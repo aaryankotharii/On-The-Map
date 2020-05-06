@@ -34,7 +34,7 @@ class LinkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
+        setupCancelButton()
         MapClient.setUpMap(location, mapView: mapView)
         hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.

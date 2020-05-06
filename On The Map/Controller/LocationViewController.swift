@@ -11,28 +11,32 @@ import MapKit
 
 class LocationViewController: UIViewController {
 
+    //MARK: Outlets
     @IBOutlet var locationTextView: UITextView!
     @IBOutlet var findOnMapButton: UIButton!
     @IBOutlet var questionStack: UIStackView!
     
+    //MARK: Variables
     var location : CLLocation!
     
+    
+    //MARK:- View LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
-        self.navigationItem.setHidesBackButton(true, animated: true);
-
+        setupCancelButton()   /// Navigation Bar Setup
+        self.navigationItem.setHidesBackButton(true, animated: true);   /// hide Back Button ( as we have cancel button)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         findOnMapButton.isEnabled = true
         hideKeyboardWhenTappedAround()
+        locationTextView.centerVerticalText()       /// Cente text vertically in textview
     }
     
 
     
-
+    //MARK:- IBActions
     @IBAction func findClicked(_ sender: UIButton) {
         findOnMapButton.isEnabled = false
         MapClient.TextToLocation(locationTextView.text, completion: handleTextToLocation(location:error:))
@@ -69,15 +73,7 @@ class LocationViewController: UIViewController {
 }
 
 
-extension UIViewController{
-    func setupNavBar(){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTapped))
-    }
-    
-    @objc func cancelTapped(){
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-}
+
 
 extension LocationViewController{
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -98,4 +94,6 @@ extension LocationViewController : UITextViewDelegate{
         textView.text = ""
     }
 }
+
+
 

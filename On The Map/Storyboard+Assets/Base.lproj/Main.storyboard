@@ -424,8 +424,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5v-vy-WM9">
                                 <rect key="frame" x="0.0" y="220.5" width="320" height="127"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Your Location Here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-lH-rvG">
-                                        <rect key="frame" x="36" y="36" width="248" height="81"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="Enter Your Location Here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-lH-rvG">
+                                        <rect key="frame" x="36" y="10" width="248" height="107"/>
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -436,11 +436,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.029320839723926403" green="0.3411764705882353" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="lYa-lH-rvG" firstAttribute="centerY" secondItem="p5v-vy-WM9" secondAttribute="centerY" id="EpF-RC-0W7"/>
                                     <constraint firstAttribute="trailing" secondItem="lYa-lH-rvG" secondAttribute="trailing" constant="36" id="PO5-Ao-cwr"/>
                                     <constraint firstAttribute="bottom" secondItem="lYa-lH-rvG" secondAttribute="bottom" constant="10" id="Sec-bH-g6Q"/>
                                     <constraint firstItem="lYa-lH-rvG" firstAttribute="leading" secondItem="p5v-vy-WM9" secondAttribute="leading" constant="36" id="VQR-tV-K5p"/>
                                     <constraint firstAttribute="height" constant="150" id="h1i-Kg-xE3"/>
-                                    <constraint firstItem="lYa-lH-rvG" firstAttribute="top" secondItem="p5v-vy-WM9" secondAttribute="top" constant="36" id="q40-bB-iOt"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
