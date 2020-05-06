@@ -20,7 +20,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         AddObserver()   /// ADD OBSERVER
-        //reloadData()    //// ADD PINS
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,21 +46,23 @@ class MapViewController: UIViewController {
             
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             
+            // extracting data from struct
             let first = student.firstName
             let last = student.lastName
             let mediaURL = student.mediaURL
             
-            // Here we create the annotation and set its coordiate, title, and subtitle properties
+            // Create annotation
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
             annotation.title = "\(first) \(last)"
             annotation.subtitle = mediaURL
             
-            // Finally we place the annotation in an array of annotations.
+            // Add annotations to mapView
             self.mapView.addAnnotation(annotation)
         }
     }
     
+    //MARK:- RELOAD
     func reloadData(){
         data = (UIApplication.shared.delegate as! AppDelegate).data.results
         SetupMap(data)
