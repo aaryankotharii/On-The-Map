@@ -22,12 +22,6 @@ class LinkViewController: UIViewController {
     var location : CLLocation!
     var address : String!
     
-    //Check if user has an existing post
-    var postisExisting : Bool {
-        if UserDefaults.standard.value(forKey: "objectId") == nil {  return false   }
-        return true
-    }
-    
     //MARK:- View LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +41,7 @@ class LinkViewController: UIViewController {
         // Data to be sent
         let student = NewStudentRequest(uniqueKey: "1234", firstName: "Aaryan", lastName: "Kothari", mapString: address, mediaURL: linkTextView.text, latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude))
         
-        //Check for existing post
+        //Check for existing post and goForward
         if postisExisting{
             UdacityClient.updateStudentLocation(data: student, completion: handleUpdateStudentLocation)
         }else{

@@ -11,23 +11,15 @@ import Network
 
 class TabBarController: UITabBarController {
     
-    var postisExisting : Bool {
-        if UserDefaults.standard.value(forKey: "objectId") == nil {
-            return false
-        }
-        return true
-    }
-
-    
+    //MARK: ViewDidLoad ( INITIAL SETUP )
     override func viewDidLoad() {
         super.viewDidLoad()
         UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
     }
     
-    
+    //MARK:- IBACTIONS
     @IBAction func logotuClicked(_ sender: Any) {
         FBLogin ?  handleFacebookLogout() : UdacityClient.logout(completion: handleLogout(success:error:))
-        
     }
     
     @IBAction func postLocationClicked(_ sender: Any) {
@@ -37,6 +29,8 @@ class TabBarController: UITabBarController {
         UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
     }
     
+    
+    //MARK: Handle Student information fetching
     func handleStudentInformation(data: [StudentInformation],error:Error?){
         if let error = error{
             switch error.localizedDescription {
@@ -55,13 +49,14 @@ class TabBarController: UITabBarController {
         }
     }
     
+    
+    //MARK:- Logout handlers
     func handleLogout(success:Bool,error:Error?){
         if success{
             UserDefaults.standard.setValue(false, forKey: "login")
-            DispatchQueue.main.async {
-                self.goToLoginVC()
-            }
-        }else{
+            DispatchQueue.main.async { self.goToLoginVC() }
+        }
+        else{
             AuthAlert(error!.localizedDescription)
         }
     }
@@ -71,21 +66,23 @@ class TabBarController: UITabBarController {
         DispatchQueue.main.async {
             self.goToLoginVC()
         }
-        
     }
     
+    
+    //MARK:- Functions for navigating to new VC
     func goToLocationVC(){
         let vc = mainStoryboard.instantiateViewController(identifier: "LocationViewController") as LocationViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)   /// FOR PIN CLICK
     }
     
     func goToLoginVC(){
         let vc = mainStoryboard.instantiateViewController(identifier: "LoginVC") as LoginViewController
-        self.present(vc, animated: true)
-        
+        self.present(vc, animated: true)    /// FOR LOGOUT
     }
 }
 
+
+//MARK:- TabBarController Alert Functions
 extension TabBarController {
     func overwriteAlert(){
         let alert = UIAlertController(title: nil, message: "You Have Already Posted a Student Location. Would You Like to Overwrite Your Current Location?", preferredStyle: .alert)
@@ -101,3 +98,5 @@ extension TabBarController {
         goToLocationVC()
     }
 }
+
+// END

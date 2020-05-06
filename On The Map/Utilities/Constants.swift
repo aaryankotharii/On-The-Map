@@ -13,6 +13,13 @@ let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
 var FBLogin : Bool = false
 
+var postisExisting : Bool {
+    if UserDefaults.standard.value(forKey: "objectId") == nil {
+        return false
+    }
+    return true
+}
+
 public func debugLog(message: String) {
     #if DEBUG
     debugPrint("=======================================")
