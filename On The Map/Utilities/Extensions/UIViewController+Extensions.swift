@@ -11,7 +11,10 @@ import SafariServices
 
 //MARK:-  For LocationVC and LinkVC
 extension UIViewController{
-    func setupCancelButton(){
+    func setupNavBar(){
+        self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "icon_back-arrow")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "icon_back-arrow")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTapped))
     }
     @objc func cancelTapped(){
