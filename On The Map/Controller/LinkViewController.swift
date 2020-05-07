@@ -64,42 +64,6 @@ class LinkViewController: UIViewController {
 }
 
 
-//MARK:- WKNavigation Delegate Methods
-//extension LinkViewController: WKNavigationDelegate {
-//    func showWebsite(_ url : URL){
-//
-//        webView.navigationDelegate = self
-//
-//        webView.load(URLRequest(url: url))
-//
-//        webView.allowsBackForwardNavigationGestures = true
-//    }
-//}
 
-
-//MARK:- UITextView Delegate Methods
-extension LinkViewController: UITextViewDelegate {
-    //***************************************************************//
-    //MARK:- Animate IN webview if URL is valid
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        let width = view.frame.width / 2
-//        let text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
-//        if let url = URL(string: text){
-//
-//            if url.isValid{
-//                webviewWidthAnchor.constant = width
-//                showWebsite(url)
-//            }else{
-//                webviewWidthAnchor.constant = 0
-//            }
-//            UIView.animate(withDuration: 0.1,
-//                           delay: TimeInterval(0),
-//                           options: .curveEaseIn,
-//                           animations: { self.view.layoutIfNeeded() },
-//                           completion: nil)
-//        }
-//    }
-    //***************************************************************//
-}
 
 

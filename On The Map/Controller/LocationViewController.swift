@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import WebKit
 
 class LocationViewController: UIViewController {
 
@@ -15,6 +16,8 @@ class LocationViewController: UIViewController {
     @IBOutlet var findOnMapButton: UIButton!
     @IBOutlet var locationTextField: UITextField!
     @IBOutlet var UrlTextField: UITextField!
+    
+    @IBOutlet var webView: WKWebView!
     
     //MARK: Variables
     var location : CLLocation!
@@ -26,13 +29,13 @@ class LocationViewController: UIViewController {
         setupNavBar()   /// Navigation Bar Setup
         self.navigationItem.setHidesBackButton(true, animated: true);   /// hide Back Button ( as we have cancel button)
         self.navigationItem.title = "Add Location"
+        webView.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         findOnMapButton.isEnabled = true
         hideKeyboardWhenTappedAround()
-        subscribeToKeyboardNotifications()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -45,7 +48,7 @@ class LocationViewController: UIViewController {
     //MARK:- IBActions
     @IBAction func findClicked(_ sender: UIButton) {
         findOnMapButton.isEnabled = false
-        if let error = errorCheck() {AuthAlert(error);  return}
+        if let error = errorCheck() {AuthAlert(error); findOnMapButton.isEnabled = true ; return}
         MapClient.TextToLocation(locationTextField.text!, completion: handleTextToLocation(location:error:))
     }
     
@@ -93,6 +96,39 @@ extension LocationViewController : UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""     /// Empty textfield when strt typing
     }
+
+        //***************************************************************//
+        //MARK:- Animate IN webview if URL is valid
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let text = UrlTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            if let url = URL(string: text){
+                if url.isValid{
+                    showWebsite(url)
+                    webView.isHidden = false
+                }else{
+                    webView.isHidden = true
+                }
+                UIView.animate(withDuration: 0.1,
+                               delay: TimeInterval(0),
+                               options: .curveEaseIn,
+                               animations: { self.view.layoutIfNeeded() },
+                               completion: nil)
+            }
+        }
+        //***************************************************************//
+    
+}
+
+//MARK:- WKNavigation Delegate Methods
+extension LocationViewController: WKNavigationDelegate {
+    func showWebsite(_ url : URL){
+
+        webView.navigationDelegate = self
+
+        webView.load(URLRequest(url: url))
+
+        webView.allowsBackForwardNavigationGestures = true
+    }
 }
 
 //MARK:- Keyboard show + hide functions
@@ -114,7 +150,9 @@ extension LocationViewController {
     //MARK: Move view up /down only for bottomTextField
     @objc func keyboardWillShow(_ notification:Notification) {
         if UrlTextField.isFirstResponder {
-            view.frame.origin.y -= 30
+            view.frame.origin.y = -30
+        } else {
+            view.frame.origin.y = 0
         }
     }
     
