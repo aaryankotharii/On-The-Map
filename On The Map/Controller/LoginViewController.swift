@@ -66,6 +66,8 @@ class LoginViewController: UIViewController {
                 switch error?.localizedDescription {
                 case "The Internet connection appears to be offline.":
                     networkErrorAlert(titlepass: error!.localizedDescription)
+                case "The data couldn't be read because because it isn't in the correct format.":
+                    AuthAlert("Entered EmailID or Password is incorrect")
                 default:
                      AuthAlert(error!.localizedDescription)
                 }
