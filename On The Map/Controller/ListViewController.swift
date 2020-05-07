@@ -17,6 +17,16 @@ class ListViewController: UIViewController {
     //MARK:- StudentLocation Data
     var data = (UIApplication.shared.delegate as! AppDelegate).data.results
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+                     #selector(loadList),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = #colorLiteral(red: 0.09505660087, green: 0.8000571132, blue: 0.7261177897, alpha: 1)
+        
+        return refreshControl
+    }()
+    
     //MARK: VC lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +40,13 @@ class ListViewController: UIViewController {
         studentDataTableView.dataSource = self
         studentDataTableView.backgroundView = UIImageView(image:#imageLiteral(resourceName: "TableView background"))
         studentDataTableView.backgroundView?.contentMode = .scaleAspectFit
+        studentDataTableView.addSubview(refreshControl)
     }
     
     @objc func loadList(){
         data = (UIApplication.shared.delegate as! AppDelegate).data.results
         self.studentDataTableView.reloadData()
+        if refreshControl.isRefreshing { refreshControl.endRefreshing() }
     }
 }
 
