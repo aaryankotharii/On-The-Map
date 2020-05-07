@@ -111,6 +111,11 @@
                                     <constraint firstItem="dpS-VJ-Nbb" firstAttribute="top" secondItem="hbF-Wo-3kW" secondAttribute="top" constant="8" id="eeT-A2-0F7"/>
                                     <constraint firstItem="dpS-VJ-Nbb" firstAttribute="leading" secondItem="hbF-Wo-3kW" secondAttribute="leading" priority="500" constant="30" id="iAG-VI-SZX"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sDr-zN-T0m">
                                 <rect key="frame" x="87.5" y="600.5" width="239" height="30"/>
@@ -708,7 +713,7 @@
         <scene sceneID="gqN-5B-aJ9">
             <objects>
                 <navigationController storyboardIdentifier="nav" modalPresentationStyle="fullScreen" id="eGh-Wl-ABQ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ju7-6r-Ocg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="icon_back-arrow" id="ju7-6r-Ocg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -772,6 +777,7 @@
     </scenes>
     <resources>
         <image name="fb" width="46" height="47"/>
+        <image name="icon_back-arrow" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>

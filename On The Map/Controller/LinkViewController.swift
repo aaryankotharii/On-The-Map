@@ -29,7 +29,7 @@ class LinkViewController: UIViewController {
     }
     
     func initialSetup(){
-        setupCancelButton()     /// Add  cancel button to bar
+        setupNavBar()     /// Add  cancel button to bar + Custom Back buttom
         MapClient.setUpMap(location, mapView: mapView)      /// Setup Map
         hideKeyboardWhenTappedAround()          /// func name is explanotory
         linkTextView.centerVerticalText()       /// Centre align textview text vertically

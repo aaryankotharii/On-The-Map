@@ -23,7 +23,7 @@ class LocationViewController: UIViewController {
     //MARK:- View LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCancelButton()   /// Navigation Bar Setup
+        setupNavBar()   /// Navigation Bar Setup
         self.navigationItem.setHidesBackButton(true, animated: true);   /// hide Back Button ( as we have cancel button)
     }
     
@@ -32,6 +32,7 @@ class LocationViewController: UIViewController {
         findOnMapButton.isEnabled = true
         hideKeyboardWhenTappedAround()
         locationTextView.centerVerticalText()       /// Cente text vertically in textview
+
     }
     
 
