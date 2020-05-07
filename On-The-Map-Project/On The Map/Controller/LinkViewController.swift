@@ -59,8 +59,11 @@ class LinkViewController: UIViewController {
     
     //MARK:- Handle PUT STUDENTLOCATION
     func handleUpdateStudentLocation(success:Bool,error:Error?){
-        if success{     successLAert("Your student Location successfully updated")      }
-        else {      AuthAlert(error!.localizedDescription)      }
+        if success{
+            successLAert("Your student Location successfully updated")
+        } else {
+            AuthAlert(error!.localizedDescription)
+        }
     }
 }
 

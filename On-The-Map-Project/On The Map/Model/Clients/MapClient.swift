@@ -21,7 +21,10 @@ class MapClient : NSObject, MKMapViewDelegate{
         
         geoCoder.geocodeAddressString(address) { (placemarks, error) in
             guard let placemarks = placemarks, let location = placemarks.first?.location
-                else { completion(nil,error) ;    return    }
+                else {
+                    completion(nil,error)
+                    return
+            }
             completion(location,nil)
         }
     }
