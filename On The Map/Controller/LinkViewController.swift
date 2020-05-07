@@ -86,7 +86,8 @@ extension LinkViewController: UITextViewDelegate {
     //MARK:- Animate IN webview if URL is valid
     func textViewDidEndEditing(_ textView: UITextView) {
         let width = view.frame.width / 2
-        if let text = textView.text, let url = URL(string: text){
+        let text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if let url = URL(string: text){
             
             if url.isValid{
                 webviewWidthAnchor.constant = width
