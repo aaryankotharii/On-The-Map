@@ -39,10 +39,14 @@ class LocationViewController: UIViewController {
     //MARK:- IBActions
     @IBAction func findClicked(_ sender: UIButton) {
         findOnMapButton.isEnabled = false
+        if let error = errorCheck() {AuthAlert(error);  return}
         MapClient.TextToLocation(locationTextField.text!, completion: handleTextToLocation(location:error:))
     }
     
     func errorCheck()->String?{
+        if UrlTextField.text == "" {
+            return "Please enter a URL"
+        }
         return nil
     }
     
