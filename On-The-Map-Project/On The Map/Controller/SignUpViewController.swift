@@ -14,10 +14,6 @@ class SignUpViewController: UIViewController, WKNavigationDelegate {
     //MARK: WebView to display Udacity website
     @IBOutlet var webView: WKWebView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     //MARK:- webView setup
     func setupWebView(){
         webView.navigationDelegate = self
