@@ -25,10 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
          if loginstatus == false {
             UdacityClient.logout { (success, error) in
-                if !success{ print(error?.localizedDescription)}
+                if !success{  debugLog(message: error?.localizedDescription ?? "Logout Error")  }
+            FacebookClient.logout()
             }
-         //debugLog(message: "SignOut successful")
-        
+            debugLog(message: "SignOut successful")
          let VC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             window!.rootViewController = VC
          }

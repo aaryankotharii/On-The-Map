@@ -447,30 +447,30 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Twf-tH-uan">
                                 <rect key="frame" x="20" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="LOGOUT"/>
                                 <connections>
                                     <action selector="logotuClicked:" destination="NCc-JE-JBZ" eventType="touchUpInside" id="eJO-k2-pKS"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                         <rightBarButtonItems>
+                            <barButtonItem style="plain" id="fSt-Ig-YTu">
+                                <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JxF-rJ-U1Q">
+                                    <rect key="frame" x="364" y="7" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="icon_addpin"/>
+                                    <connections>
+                                        <action selector="postLocationClicked:" destination="NCc-JE-JBZ" eventType="touchUpInside" id="DzX-Fn-2k4"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
                             <barButtonItem style="plain" id="Tt2-Bw-Fat">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I9s-gy-Dqs">
-                                    <rect key="frame" x="364" y="10" width="30" height="24"/>
+                                    <rect key="frame" x="326" y="10" width="30" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="icon_refresh"/>
                                     <connections>
                                         <action selector="refreshDataClicked:" destination="NCc-JE-JBZ" eventType="touchUpInside" id="1z2-cq-BUB"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="fSt-Ig-YTu">
-                                <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JxF-rJ-U1Q">
-                                    <rect key="frame" x="326" y="7" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_pin"/>
-                                    <connections>
-                                        <action selector="postLocationClicked:" destination="NCc-JE-JBZ" eventType="touchUpInside" id="DzX-Fn-2k4"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
@@ -777,6 +777,7 @@
     </scenes>
     <resources>
         <image name="fb" width="46" height="47"/>
+        <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_back-arrow" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_listview-selected" width="75" height="50"/>

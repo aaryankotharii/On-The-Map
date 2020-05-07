@@ -39,7 +39,7 @@ class FacebookClient {
             GraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email, gender"]).start(completionHandler: { (connection, result, error) -> Void in
                 
                 if let error = error {
-                    print(error.localizedDescription)
+                    print(error.localizedDescription)       /// Not using Data since Udacity GETting data not wokring
                     completion(false,fbData(),error)
                     return
                 }

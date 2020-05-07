@@ -14,6 +14,10 @@ class TabBarController: UITabBarController {
     //MARK: ViewDidLoad ( INITIAL SETUP )
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
     }
     

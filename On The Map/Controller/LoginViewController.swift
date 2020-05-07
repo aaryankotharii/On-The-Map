@@ -90,7 +90,7 @@ class LoginViewController: UIViewController {
     
     func handleFacebookData(success:Bool,data:fbData,error:Error?){
         if success {
-            print(data,"This is the data retrived from the facebook account")
+            debugLog(message: "\(data) This is the data retrived from the facebook account")
         }else{
             debugLog(message: "FB Data could not be retreived")
         }
