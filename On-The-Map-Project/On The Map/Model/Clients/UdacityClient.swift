@@ -167,7 +167,7 @@ class UdacityClient {
         let body = data
         let objectId = UserDefaults.standard.value(forKey: "objectId") as! String
         taskForPOSTRequest(url: Endpoints.updateStudent(objectID: objectId).url,responseType: updtatedStudentResponse.self, body: body,httpMethod: .PUT) { response, error in
-            if let response = response {
+            if let _ = response {
                 debugLog(message: "STUDENT LOCATION UPDATED")
                 completion(true, nil)
             } else {
