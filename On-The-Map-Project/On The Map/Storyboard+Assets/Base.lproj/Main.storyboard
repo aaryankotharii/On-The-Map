@@ -637,13 +637,18 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="bcc-kL-h8O">
+                                <rect key="frame" x="188.66666666666666" y="284.33333333333331" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="SQz-Wb-6Sc" firstAttribute="centerY" secondItem="jPh-7N-dZb" secondAttribute="centerY" constant="-30" id="19q-GE-Y03"/>
+                            <constraint firstItem="bcc-kL-h8O" firstAttribute="centerX" secondItem="7H8-pa-hEx" secondAttribute="centerX" id="6lh-gQ-aNc"/>
                             <constraint firstItem="hfW-KE-k0I" firstAttribute="trailing" secondItem="7H8-pa-hEx" secondAttribute="trailing" constant="40" id="7UV-2A-oUC"/>
                             <constraint firstItem="7H8-pa-hEx" firstAttribute="centerX" secondItem="jPh-7N-dZb" secondAttribute="centerX" id="9Vj-MO-tS7"/>
                             <constraint firstItem="ekE-VL-5SZ" firstAttribute="top" secondItem="7H8-pa-hEx" secondAttribute="bottom" constant="10" id="BvW-YO-NnZ"/>
+                            <constraint firstItem="7H8-pa-hEx" firstAttribute="top" secondItem="bcc-kL-h8O" secondAttribute="bottom" constant="40" id="C44-6r-8Sd"/>
                             <constraint firstItem="ekE-VL-5SZ" firstAttribute="trailing" secondItem="7H8-pa-hEx" secondAttribute="trailing" id="F9z-tN-Zc4"/>
                             <constraint firstItem="7H8-pa-hEx" firstAttribute="centerY" secondItem="jPh-7N-dZb" secondAttribute="centerY" id="Fxp-mT-sZj"/>
                             <constraint firstItem="hfW-KE-k0I" firstAttribute="bottom" secondItem="ekE-VL-5SZ" secondAttribute="bottom" priority="500" constant="30.329999999999998" id="H7t-Kp-5jw"/>
@@ -720,6 +725,7 @@
                     </view>
                     <connections>
                         <outlet property="UrlTextField" destination="gN3-TK-xU7" id="IEa-I2-W6D"/>
+                        <outlet property="activityIndicator" destination="bcc-kL-h8O" id="JZl-fn-dE1"/>
                         <outlet property="findOnMapButton" destination="BKU-K1-l9c" id="7S6-Fs-mZw"/>
                         <outlet property="locationTextField" destination="cFZ-MO-Qix" id="pAc-uc-HWc"/>
                         <outlet property="webView" destination="ekE-VL-5SZ" id="dth-bg-h6H"/>

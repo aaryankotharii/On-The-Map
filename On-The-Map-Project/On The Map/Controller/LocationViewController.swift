@@ -18,6 +18,10 @@ class LocationViewController: UIViewController {
     @IBOutlet var UrlTextField: UITextField!
     
     @IBOutlet var webView: WKWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    
+
     
     //MARK: Variables
     var location : CLLocation!
@@ -30,6 +34,7 @@ class LocationViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true);   /// hide Back Button ( as we have cancel button)
         self.navigationItem.title = "Add Location"
         webView.isHidden = true
+        activityIndicator.hidesWhenStopped = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,8 +52,14 @@ class LocationViewController: UIViewController {
     
     //MARK:- IBActions
     @IBAction func findClicked(_ sender: UIButton) {
+        activityIndicator.startAnimating()
         findOnMapButton.isEnabled = false
-        if let error = errorCheck() {AuthAlert(error); findOnMapButton.isEnabled = true ; return}
+        if let error = errorCheck() {
+            AuthAlert(error)
+            findOnMapButton.isEnabled = true
+            activityIndicator.stopAnimating()
+            return
+        }
         MapClient.TextToLocation(locationTextField.text!, completion: handleTextToLocation(location:error:))
     }
     
@@ -72,10 +83,12 @@ class LocationViewController: UIViewController {
                 AuthAlert(status)
             }
             findOnMapButton.isEnabled = true
+            activityIndicator.stopAnimating()
             return
         }
         self.location = location
         performSegue(withIdentifier: "tolinkvc", sender: self)
+        activityIndicator.stopAnimating()
     }
     
     // MARK: - Navigation
