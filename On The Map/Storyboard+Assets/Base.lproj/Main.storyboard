@@ -615,6 +615,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKU-K1-l9c">
                                         <rect key="frame" x="0.0" y="98" width="334" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="findClicked:" destination="jr5-Sb-YEl" eventType="touchUpInside" id="Ckz-7l-8Xv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -628,6 +631,9 @@
                         <viewLayoutGuide key="safeArea" id="hfW-KE-k0I"/>
                     </view>
                     <connections>
+                        <outlet property="UrlTextField" destination="gN3-TK-xU7" id="IEa-I2-W6D"/>
+                        <outlet property="findOnMapButton" destination="BKU-K1-l9c" id="7S6-Fs-mZw"/>
+                        <outlet property="locationTextField" destination="cFZ-MO-Qix" id="pAc-uc-HWc"/>
                         <segue destination="tb0-xk-gwn" kind="show" identifier="tolinkvc" id="inj-yZ-6iP"/>
                     </connections>
                 </viewController>
@@ -649,6 +655,14 @@
                                     <outlet property="delegate" destination="tb0-xk-gwn" id="Tgt-Eg-tFb"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scf-bR-fcd">
+                                <rect key="frame" x="184" y="777" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submitClicked:" destination="tb0-xk-gwn" eventType="touchUpInside" id="dUm-EC-CBm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -660,6 +674,9 @@
                         <viewLayoutGuide key="safeArea" id="mFZ-Nz-eW7"/>
                     </view>
                     <navigationItem key="navigationItem" id="d9h-hU-ceh"/>
+                    <connections>
+                        <outlet property="mapView" destination="71h-ar-2po" id="sKc-hE-3Uy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5xk-pE-kyp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
