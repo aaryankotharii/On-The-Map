@@ -17,11 +17,10 @@ class ListViewController: UIViewController {
     //MARK:- StudentLocation Data
     var data = (UIApplication.shared.delegate as! AppDelegate).data.results
     
+    //MARK:- ACTIVITY INDICATOR
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-                     #selector(loadList),
-                                 for: UIControl.Event.valueChanged)
+        refreshControl.addTarget(self, action: #selector(loadList),for: UIControl.Event.valueChanged)
         refreshControl.tintColor = #colorLiteral(red: 0.09505660087, green: 0.8000571132, blue: 0.7261177897, alpha: 1)
         
         return refreshControl
@@ -46,7 +45,7 @@ class ListViewController: UIViewController {
     @objc func loadList(){
         data = (UIApplication.shared.delegate as! AppDelegate).data.results
         self.studentDataTableView.reloadData()
-        if refreshControl.isRefreshing { refreshControl.endRefreshing() }
+        if refreshControl.isRefreshing { refreshControl.endRefreshing() }   /// STOP REFRESH IF ACTIVE
     }
 }
 
