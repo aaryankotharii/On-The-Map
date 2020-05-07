@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -214,6 +214,9 @@
                                 <exclude reference="Xa1-sV-isn"/>
                                 <exclude reference="h3r-rZ-PP4"/>
                                 <exclude reference="mZe-um-Ig2"/>
+                                <exclude reference="6Jc-hD-IfL"/>
+                                <exclude reference="DJk-Ls-tKu"/>
+                                <exclude reference="Umy-nX-wNr"/>
                                 <exclude reference="EeN-FU-7bV"/>
                                 <exclude reference="KXP-cY-wiA"/>
                                 <exclude reference="OZg-Vx-o7A"/>
@@ -223,16 +226,13 @@
                                 <exclude reference="ad1-td-C6L"/>
                                 <exclude reference="df9-al-5wE"/>
                                 <exclude reference="lMy-t7-o9Q"/>
-                                <exclude reference="6Jc-hD-IfL"/>
-                                <exclude reference="DJk-Ls-tKu"/>
-                                <exclude reference="Umy-nX-wNr"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <include reference="DUF-eg-llu"/>
-                                <include reference="df9-al-5wE"/>
                                 <exclude reference="6Jc-hD-IfL"/>
+                                <include reference="df9-al-5wE"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -297,16 +297,16 @@
                                 <exclude reference="Xa1-sV-isn"/>
                                 <exclude reference="mZe-um-Ig2"/>
                                 <exclude reference="uEM-8m-b84"/>
+                                <exclude reference="1QA-Uq-Eha"/>
+                                <exclude reference="CRh-Ve-8cY"/>
+                                <include reference="DJk-Ls-tKu"/>
+                                <include reference="Umy-nX-wNr"/>
                                 <include reference="EeN-FU-7bV"/>
                                 <exclude reference="OZg-Vx-o7A"/>
                                 <exclude reference="RMx-ub-9Qu"/>
                                 <include reference="Rnc-FW-wYl"/>
                                 <exclude reference="aHC-IP-Va9"/>
                                 <include reference="ad1-td-C6L"/>
-                                <exclude reference="1QA-Uq-Eha"/>
-                                <exclude reference="CRh-Ve-8cY"/>
-                                <include reference="DJk-Ls-tKu"/>
-                                <include reference="Umy-nX-wNr"/>
                             </mask>
                         </variation>
                     </view>
@@ -559,17 +559,22 @@
                                         <include reference="h1i-Kg-xE3"/>
                                     </mask>
                                 </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <exclude reference="lYa-lH-rvG"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieG-ml-H3J">
                                 <rect key="frame" x="82" y="762" width="250" height="50"/>
-                                <color key="backgroundColor" name="Button"/>
+                                <color key="backgroundColor" name="login"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MGq-xS-YwZ"/>
                                     <constraint firstAttribute="width" constant="250" id="e3E-44-4Pd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Find on the Map">
-                                    <color key="titleColor" name="login"/>
+                                <state key="normal" title="FIND LOCATION">
+                                    <color key="titleColor" name="Button"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -580,6 +585,26 @@
                                     <action selector="findClicked:" destination="A4P-d8-1uf" eventType="touchUpInside" id="yYf-6h-4D4"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="S9Y-eu-DaX">
+                                <rect key="frame" x="142" y="144" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="69W-v6-bud"/>
+                                    <constraint firstAttribute="width" secondItem="S9Y-eu-DaX" secondAttribute="height" id="LXO-mR-ws3"/>
+                                    <constraint firstAttribute="width" constant="130" id="kB6-R9-wb7"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd1-j5-hHU">
+                                <rect key="frame" x="82" y="372" width="255" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Un9-u4-nEy">
+                                <rect key="frame" x="82" y="431" width="255" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPY-Ob-8D7">
                                 <rect key="frame" x="0.0" y="44" width="414" height="304"/>
                                 <subviews>
@@ -614,12 +639,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Color"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="wPY-Ob-8D7" firstAttribute="leading" secondItem="iSv-en-cV1" secondAttribute="leading" id="3de-s6-PNa"/>
                             <constraint firstItem="p5v-vy-WM9" firstAttribute="top" secondItem="wPY-Ob-8D7" secondAttribute="bottom" id="47Y-LI-Byc"/>
+                            <constraint firstItem="S9Y-eu-DaX" firstAttribute="top" secondItem="iSv-en-cV1" secondAttribute="top" constant="100" id="6Da-9N-8Kl"/>
                             <constraint firstItem="iSv-en-cV1" firstAttribute="bottom" secondItem="ieG-ml-H3J" secondAttribute="bottom" constant="50" id="BYm-wk-vHb"/>
                             <constraint firstItem="wPY-Ob-8D7" firstAttribute="top" secondItem="iSv-en-cV1" secondAttribute="top" id="KiH-LX-D4W"/>
+                            <constraint firstItem="S9Y-eu-DaX" firstAttribute="centerX" secondItem="kIr-AW-bky" secondAttribute="centerX" id="MjL-6Z-wHs"/>
                             <constraint firstItem="ieG-ml-H3J" firstAttribute="centerX" secondItem="kIr-AW-bky" secondAttribute="centerX" id="Muf-kn-1Bv"/>
                             <constraint firstItem="iSv-en-cV1" firstAttribute="trailing" secondItem="wPY-Ob-8D7" secondAttribute="trailing" id="Q6g-iM-yO0"/>
                             <constraint firstAttribute="trailing" secondItem="p5v-vy-WM9" secondAttribute="trailing" id="Q99-3Z-Quo"/>
@@ -631,9 +658,17 @@
                             <constraint firstItem="p5v-vy-WM9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="O2H-7F-sJI" secondAttribute="bottom" constant="10" id="tB8-Pf-wAs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iSv-en-cV1"/>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="p5v-vy-WM9"/>
+                                <exclude reference="wPY-Ob-8D7"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="UrlTextField" destination="Un9-u4-nEy" id="seB-bP-TFM"/>
                         <outlet property="findOnMapButton" destination="ieG-ml-H3J" id="NjV-DO-OVY"/>
+                        <outlet property="locationTextField" destination="fd1-j5-hHU" id="Rpc-fv-dzs"/>
                         <outlet property="locationTextView" destination="lYa-lH-rvG" id="c5S-Z4-cyh"/>
                         <outlet property="questionStack" destination="O2H-7F-sJI" id="NRC-Zm-FB9"/>
                         <segue destination="krK-06-3dE" kind="show" identifier="tolinkvc" id="cFq-gi-WpW"/>
@@ -641,7 +676,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JZ-Zh-086" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3157" y="269"/>
+            <point key="canvasLocation" x="3156.521739130435" y="268.52678571428572"/>
         </scene>
         <!--Link View Controller-->
         <scene sceneID="z77-JV-lwe">
@@ -815,21 +850,19 @@
         <image name="icon_mapview-selected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
+        <image name="icon_world" width="52" height="67"/>
         <image name="logo-u" width="62" height="62"/>
         <namedColor name="Blue">
-            <color red="0.050015583629999999" green="0.34071278570000002" blue="0.55959975719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.05000000074505806" green="0.34099999070167542" blue="0.56000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Button">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Color">
-            <color red="0.89403921369999995" green="0.89416795969999996" blue="0.8940109611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="FB">
-            <color red="0.3529411764705882" green="0.44313725490196076" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3529999852180481" green="0.44299998879432678" blue="0.67799997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="login">
-            <color red="0.32549019607843138" green="0.69019607843137254" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.32499998807907104" green="0.68999999761581421" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
