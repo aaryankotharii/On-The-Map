@@ -15,6 +15,7 @@ class LinkViewController: UIViewController {
     //MARK: Outlets
     @IBOutlet var mapView: MKMapView!
     
+    @IBOutlet var loadingImage: UIImageView!
     //MARK: Variables
     var location : CLLocation!
     var address : String!
@@ -24,6 +25,7 @@ class LinkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        loadingImage.rotate360Degrees()
     }
     
     func initialSetup(){
@@ -60,6 +62,25 @@ class LinkViewController: UIViewController {
     func handleUpdateStudentLocation(success:Bool,error:Error?){
         if success{     successLAert("Your student Location successfully updated")      }
         else {      AuthAlert(error!.localizedDescription)      }
+    }
+}
+
+extension LinkViewController: MKMapViewDelegate {
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        loadingImage.layer.removeAllAnimations()
+        loadingImage.isHidden = true
+    }
+}
+
+extension UIView {
+    func rotate360Degrees() {
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.fromValue = 0.0
+        rotateAnimation.toValue = CGFloat(Double.pi * 2)
+        rotateAnimation.isRemovedOnCompletion = false
+        rotateAnimation.duration = 1
+        rotateAnimation.repeatCount=Float.infinity
+        self.layer.add(rotateAnimation, forKey: nil)
     }
 }
 

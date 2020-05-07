@@ -170,6 +170,8 @@ extension LocationViewController {
         return height
     }
     
+    
+    //MARK:- Keyboard observer only for landscape mode
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if UIDevice.current.orientation.isLandscape {
