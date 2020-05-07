@@ -34,7 +34,6 @@ class LinkViewController: UIViewController {
         hideKeyboardWhenTappedAround()          /// func name is explanotory
     }
     
-    
     //MARK:- Sumbit Clicked
     @IBAction func submitClicked(_ sender: UIButton) {
         // Data to be sent
