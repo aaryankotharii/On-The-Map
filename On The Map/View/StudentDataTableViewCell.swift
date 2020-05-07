@@ -11,6 +11,7 @@ import UIKit
 class StudentDataTableViewCell: UITableViewCell {
 
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var urlLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

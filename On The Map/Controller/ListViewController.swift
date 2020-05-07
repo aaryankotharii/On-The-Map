@@ -53,10 +53,16 @@ extension ListViewController: UITableViewDataSource{
         let student = data[indexPath.row]
         
         let fullName = student.firstName + " " + student.lastName
+        let mediaUrl = student.mediaURL
         
         cell.nameLabel.text = fullName
+        cell.urlLabel.text = mediaUrl
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
 }
 
