@@ -11,19 +11,17 @@ import Network
 
 class TabBarController: UITabBarController {
     
-    //MARK: ViewDidLoad ( INITIAL SETUP )
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    let limit = 100
+    let order = "-updatedAt"
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        UdacityClient.getStudentInformation(completion: handleStudentInformation(data:error:))
+        UdacityClient.getStudentInformation(limit: limit, order: order,completion: handleStudentInformation(data:error:))
     }
     
     //MARK:- IBACTIONS
     @IBAction func logotuClicked(_ sender: Any) {
-        FBLogin ?  handleFacebookLogout() : UdacityClient.logout(completion: handleLogout(success:error:))
+        FBLogin ?  handleFacebookLogout() :  UdacityClient.getStudentInformation(limit: limit, order: order,completion: handleStudentInformation(data:error:))
     }
     
     @IBAction func postLocationClicked(_ sender: Any) {

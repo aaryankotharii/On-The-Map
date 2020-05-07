@@ -13,8 +13,10 @@ class UdacityClient {
     //MARK:- ENDPOINT URLS
     enum Endpoints {
         
+        static let base = "https://onthemap-api.udacity.com/v1"
+        
         case login
-        case StudentInformation
+        case StudentInformation(limit: Int?, order: String?)
         case signup
         case newStudent
         case updateStudent(objectID : String)
@@ -24,8 +26,12 @@ class UdacityClient {
             switch self {
             case .login:
                 return "https://onthemap-api.udacity.com/v1/session"
-            case .StudentInformation:
-                return "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt"
+            case .StudentInformation(limit: let limit, order: let order):
+                if let order = order, let limit = limit, !order.isEmpty {
+                    return Endpoints.base + "/StudentLocation?order=\(order)&limit=\(limit)"
+                }
+                return Endpoints.base + "/StudentLocation"
+                return "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100"
             case .signup:
                 return "https://auth.udacity.com/sign-up"
             case .newStudent:
@@ -138,8 +144,8 @@ class UdacityClient {
     }
     
     //MARK:- GET STudent Locations function
-    class func getStudentInformation(completion: @escaping ([StudentInformation], Error?) -> Void) {
-        taskForGETRequest(url: Endpoints.StudentInformation.url, responseType: StudentData.self) { response, error in
+    class func getStudentInformation(limit: Int? = nil , order: String? = "",completion: @escaping ([StudentInformation], Error?) -> Void) {
+        taskForGETRequest(url: Endpoints.StudentInformation(limit: limit,order: order).url, responseType: StudentData.self) { response, error in
             if let response = response {
                 completion(response.results, nil)
             } else {
