@@ -12,9 +12,9 @@ import MapKit
 class LocationViewController: UIViewController {
 
     //MARK: Outlets
-    @IBOutlet var locationTextView: UITextView!
     @IBOutlet var findOnMapButton: UIButton!
-    @IBOutlet var questionStack: UIStackView!
+    @IBOutlet var locationTextField: UITextField!
+    @IBOutlet var UrlTextField: UITextField!
     
     //MARK: Variables
     var location : CLLocation!
@@ -31,7 +31,6 @@ class LocationViewController: UIViewController {
         super.viewDidAppear(animated)
         findOnMapButton.isEnabled = true
         hideKeyboardWhenTappedAround()
-        locationTextView.centerVerticalText()       /// Cente text vertically in textview
 
     }
     
@@ -40,7 +39,11 @@ class LocationViewController: UIViewController {
     //MARK:- IBActions
     @IBAction func findClicked(_ sender: UIButton) {
         findOnMapButton.isEnabled = false
-        MapClient.TextToLocation(locationTextView.text, completion: handleTextToLocation(location:error:))
+        MapClient.TextToLocation(locationTextField.text!, completion: handleTextToLocation(location:error:))
+    }
+    
+    func errorCheck()->String{
+        
     }
     
     //MARK:- Text to location handler
@@ -68,31 +71,14 @@ class LocationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "tolinkvc" {
             let vc = segue.destination as! LinkViewController
-            vc.address = locationTextView.text
+            vc.address = locationTextField.text
             vc.location = self.location
         }
     }
 }
 
-
-
-//MARK:- Extenion to handle landscape UI
-extension LocationViewController{
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        if UIDevice.current.orientation.isLandscape {
-            questionStack.axis = .horizontal
-            questionStack.spacing = 10
-
-        } else {
-            questionStack.axis = .vertical
-            questionStack.spacing = 0
-        }
-    }
-}
-
 //MARK:- UITextViewDelegate Methods
-extension LocationViewController : UITextViewDelegate{
+extension LocationViewController : UITextf{
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""      /// empty textfield when start typing
     }
