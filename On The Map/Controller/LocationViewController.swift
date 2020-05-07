@@ -25,13 +25,13 @@ class LocationViewController: UIViewController {
         super.viewDidLoad()
         setupNavBar()   /// Navigation Bar Setup
         self.navigationItem.setHidesBackButton(true, animated: true);   /// hide Back Button ( as we have cancel button)
+        self.navigationItem.title = "Add Location"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         findOnMapButton.isEnabled = true
         hideKeyboardWhenTappedAround()
-
     }
     
 
@@ -42,8 +42,8 @@ class LocationViewController: UIViewController {
         MapClient.TextToLocation(locationTextField.text!, completion: handleTextToLocation(location:error:))
     }
     
-    func errorCheck()->String{
-        
+    func errorCheck()->String?{
+        return nil
     }
     
     //MARK:- Text to location handler
@@ -73,14 +73,15 @@ class LocationViewController: UIViewController {
             let vc = segue.destination as! LinkViewController
             vc.address = locationTextField.text
             vc.location = self.location
+            vc.mediaUrl = UrlTextField.text
         }
     }
 }
 
 //MARK:- UITextViewDelegate Methods
-extension LocationViewController : UITextf{
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.text = ""      /// empty textfield when start typing
+extension LocationViewController : UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""     /// Empty textfield when strt typing
     }
 }
 

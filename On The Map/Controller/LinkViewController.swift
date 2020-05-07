@@ -14,13 +14,11 @@ class LinkViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var webView: WKWebView!
-    @IBOutlet var linkTextView: UITextView!
-    @IBOutlet var webviewWidthAnchor: NSLayoutConstraint!
     
     //MARK: Variables
     var location : CLLocation!
     var address : String!
+    var mediaUrl : String!
     
     //MARK:- View LifeCycle Methods
     override func viewDidLoad() {
@@ -32,14 +30,13 @@ class LinkViewController: UIViewController {
         setupNavBar()     /// Add  cancel button to bar + Custom Back buttom
         MapClient.setUpMap(location, mapView: mapView)      /// Setup Map
         hideKeyboardWhenTappedAround()          /// func name is explanotory
-        linkTextView.centerVerticalText()       /// Centre align textview text vertically
     }
     
     
     //MARK:- Sumbit Clicked
     @IBAction func submitClicked(_ sender: UIButton) {
         // Data to be sent
-        let student = NewStudentRequest(uniqueKey: "1234", firstName: "Aaryan", lastName: "Kothari", mapString: address, mediaURL: linkTextView.text, latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude))
+        let student = NewStudentRequest(uniqueKey: "1234", firstName: "Aaryan", lastName: "Kothari", mapString: address, mediaURL: mediaUrl, latitude: Double(location.coordinate.latitude), longitude: Double(location.coordinate.longitude))
         
         //Check for existing post and goForward
         if postisExisting{
@@ -68,47 +65,41 @@ class LinkViewController: UIViewController {
 
 
 //MARK:- WKNavigation Delegate Methods
-extension LinkViewController: WKNavigationDelegate {
-    func showWebsite(_ url : URL){
-        
-        webView.navigationDelegate = self
-        
-        webView.load(URLRequest(url: url))
-        
-        webView.allowsBackForwardNavigationGestures = true
-    }
-}
+//extension LinkViewController: WKNavigationDelegate {
+//    func showWebsite(_ url : URL){
+//
+//        webView.navigationDelegate = self
+//
+//        webView.load(URLRequest(url: url))
+//
+//        webView.allowsBackForwardNavigationGestures = true
+//    }
+//}
 
 
 //MARK:- UITextView Delegate Methods
 extension LinkViewController: UITextViewDelegate {
     //***************************************************************//
     //MARK:- Animate IN webview if URL is valid
-    func textViewDidEndEditing(_ textView: UITextView) {
-        let width = view.frame.width / 2
-        let text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
-        if let url = URL(string: text){
-            
-            if url.isValid{
-                webviewWidthAnchor.constant = width
-                showWebsite(url)
-            }else{
-                webviewWidthAnchor.constant = 0
-            }
-            UIView.animate(withDuration: 0.1,
-                           delay: TimeInterval(0),
-                           options: .curveEaseIn,
-                           animations: { self.view.layoutIfNeeded() },
-                           completion: nil)
-        }
-    }
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        let width = view.frame.width / 2
+//        let text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+//        if let url = URL(string: text){
+//
+//            if url.isValid{
+//                webviewWidthAnchor.constant = width
+//                showWebsite(url)
+//            }else{
+//                webviewWidthAnchor.constant = 0
+//            }
+//            UIView.animate(withDuration: 0.1,
+//                           delay: TimeInterval(0),
+//                           options: .curveEaseIn,
+//                           animations: { self.view.layoutIfNeeded() },
+//                           completion: nil)
+//        }
+//    }
     //***************************************************************//
-
-    
-    //MARK: Empty TextView when start typing
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.text = ""
-    }
 }
 
 
