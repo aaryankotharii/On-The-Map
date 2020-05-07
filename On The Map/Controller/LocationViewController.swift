@@ -175,10 +175,8 @@ extension LocationViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
             subscribeToKeyboardNotifications()
         } else {
-            print("Portrait")
             unsubscribeFromKeyboardNotifications()
         }
     }
